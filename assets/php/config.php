@@ -13,6 +13,19 @@ $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
 if (!$dbc) {
   echo "Database connection error!<br>Please try later...";
 }
+try {
+  $uname = $_COOKIE['uname'];
+  $passw = $_COOKIE['passw'];
+  $user_query = "SELECT * FROM users WHERE uname = $uname AND passw = $passw";
+  $user_quexe = $PDO->query($user_query);
+  if ($user_quexe->rowCount() == 0) {
+    header("location: /login/");
+  }else{
+    $_data = $user_quexe->fetch(PDO::FETCH_ASSOC);
+  }
+} catch (Error $err) {
+  header("location: /login/");
+}
 ?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
