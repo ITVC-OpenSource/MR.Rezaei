@@ -1,9 +1,6 @@
 <?php
 session_start();
 $server = "http://localhost:8080";
-if (!isset($_SESSION['uname'])) {
-    //header("location: " . $server . "/login/");
-}
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";
@@ -62,8 +59,9 @@ function unsplash() {
     document.querySelector(".splash").remove();
 }
 $("body").addClass("bg-light");
-window.onload = () => {
+setTimeout(() => {
   document.querySelector(".four-sado-four-container").remove();
-}
+  document.querySelector(".four-sado-four-style").remove();
+} , 2);
 </script>
 </head>
