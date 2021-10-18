@@ -10,17 +10,17 @@ $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
 if (!$dbc) {
   echo "Database connection error!<br>Please try later...";
 }
-try {
+if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
   $uname = $_COOKIE['uname'];
   $passw = $_COOKIE['passw'];
   $user_query = "SELECT * FROM users WHERE uname = $uname AND passw = $passw";
   $user_quexe = $PDO->query($user_query);
-  if ($user_quexe->rowCount() == 0) {
-    header("location: /login/");
+  if ($user_quexe->rowCount() == 1) {
+    $user_data = $user_quexe->fetch(PDO::FETCH_ASSOC);
   }else{
-    $_data = $user_quexe->fetch(PDO::FETCH_ASSOC);
+    header("location: /login/");
   }
-} catch (Error $err) {
+} else {
   header("location: /login/");
 }
 ?>
@@ -42,15 +42,17 @@ function setCookie(cname, cvalue, exdays) {
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-var uname = localStorage.getItem("uname");
-var passw = localStorage.getItem("passw");
-if (uname !==null || passw !==null) {
-    setCookie("uname" , uname , 1000);
-    setCookie("passw" , passw , 1000);
-}else {
+try {
+  if (localStorage.getItem("uname") !==null || localStorage.getItem("passw") !==null) {
+    var uname = localStorage.getItem("uname");
+    var passw = localStorage.getItem("passw");
+  }else {
     if (location.href === "<?php echo $server ?>/login/" || location.href === "<?php echo $server ?>/login") {}else{
         location.assign("/login/");
     }
+  }
+} catch (e) {
+  location.assign("/login/");
 }
 function splash() {
     document.body.innerHTML += "<div class='splash'><img src='assets/img/loader.svg'></div>";
