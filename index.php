@@ -9,6 +9,9 @@ ROUTE::get("/login/" , function () {
 ROUTE::get("/home/" , function () {
     include(__DIR__ . "/assets/pages/home.php");
 });
+ROUTE::get("/send/" , function () {
+    include(__DIR__ . "/assets/pages/send.php");
+});
 ?>
 <link class="four-sado-four-style" rel="stylesheet" href="/assets/css/style.min.css">
 <div style="text-align: center;" class="four-sado-four-container container">
