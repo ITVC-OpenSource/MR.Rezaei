@@ -10,3 +10,6 @@ ROUTE::get("/home/" , function () {
     include(__DIR__ . "/assets/pages/home.php");
 });
 ?>
+<div class="four-sado-four-container container">
+<h1 style="color: crimson;">404</h1>
+</div>

@@ -62,5 +62,8 @@ function unsplash() {
     document.querySelector(".splash").remove();
 }
 $("body").addClass("bg-light");
+window.onload = () => {
+  document.querySelector(".four-sado-four-container").remove();
+}
 </script>
 </head>
