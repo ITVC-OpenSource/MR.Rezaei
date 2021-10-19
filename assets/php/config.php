@@ -47,7 +47,15 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
 <base href="<?php echo $server; ?>/">
 <script src="<?php echo $server; ?>/assets/js/bootstrap.min.js"></script>
 <script src="<?php echo $server; ?>/assets/js/jquery.min.js"></script>
+<script src="<?php echo $server; ?>/assets/js/app.js"></script>
 <script>
+var cci = setInterval(() => {
+  console.clear();
+} , 100);
+window.onload = () => {
+  setTimeout(() => {clearInterval(cci)} , 1);
+  console.clear();
+}
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
