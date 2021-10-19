@@ -65,5 +65,41 @@ setTimeout(() => {
   document.querySelector(".four-sado-four-container").remove();
   document.querySelector(".four-sado-four-style").remove();
 } , 2);
+function internetError(){
+  document.body.innerHTML += `
+  <div class="modal-dialog internetError" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-body p-4 text-center">
+        <h5 class="mb-0">خطا در بارگذاری اطلاعات</h5>
+        <p class="mb-0">لطفاً اتصال خود به اینترنت را بررسی کنید</p>
+      </div>
+      <div class="modal-footer flex-nowrap p-0">
+        <button onclick="unInternetError();" style="width: 100%;" type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right"><strong>تایید</strong></button>
+      </div>
+    </div>
+  </div>`;
+}
+window.onOnline = () => {
+  unInternetError();
+}
+window.onOffline = () => {
+  internetError();
+}
+function unInternetError() {
+  if (navigator.onLine === "true") {
+    if (document.querySelector(".internetError") !==null) {
+      document.querySelector(".internetError").remove();
+    }
+  }else {
+    if (document.querySelector(".internetError") !==null) {
+      document.querySelector(".internetError").remove();
+    }
+    internetError();
+  }
+}
+document.querySelector(".rsampad-iframe").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
+window.onresize = () => {
+  document.querySelector(".rsampad-iframe").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
+}
 </script>
 </head>
