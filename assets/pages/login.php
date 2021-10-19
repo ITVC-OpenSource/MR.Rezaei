@@ -17,7 +17,7 @@
           <input id="remember-me" type="checkbox" value="remember-me"> مرا به خاطر بسپار
         </label>
       </div>
-      <button id="sub" class="w-100 btn btn-lg btn-primary">ورود</button>
+      <button onclick="send();" id="sub" class="w-100 btn btn-lg btn-primary">ورود</button>
       <p class="mt-5 mb-3 text-muted" dir="ltr">©1400</p>
     </div>
   </main>
@@ -68,9 +68,14 @@ body {
   border-bottom-right-radius: unset!important;
 }
 </style>
+<?php
+if (isset($user_data)) {
+  echo "<script>location.assign('/');</script>";
+}
+?>
 <script>
 const api_server = "<?php echo $server ?>/api";
-$("#sub").click(send);
+document.querySelector("#sub").addEventListener("click" , send);
 function send() {
   let uname = $("#floatingInput").val();
   let passw = $("#floatingPassword").val();
@@ -101,6 +106,8 @@ function check(txt , u , p) {
     $("#floatingPassword").addClass("is-valid");
     localStorage.setItem("uname" , u);
     localStorage.setItem("passw" , p);
+    setCookie("uname" , u , 1);
+    setCookie("passw" , p , 1);
     location.assign("/");
   } else {
     $("#floatingInput").removeClass("is-valid");

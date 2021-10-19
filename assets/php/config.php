@@ -18,10 +18,22 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
   if ($user_quexe->rowCount() == 1) {
     $user_data = $user_quexe->fetch(PDO::FETCH_ASSOC);
   }else{
-    header("location: /login/");
+    echo "<script>
+      if (location.href === '" . $server . "/login/' || location.href === '" . $server . "/login' ) {
+        // code...
+      }else{
+        location.assign('" . $server . "/login/');
+      }
+    </script>";
   }
 } else {
-  header("location: /login/");
+  echo "<script>
+    if (location.href === '" . $server . "/login/' || location.href === '" . $server . "/login' ) {
+      // code...
+    }else{
+      location.assign('" . $server . "/login/');
+    }
+  </script>";
 }
 ?>
 <head>
@@ -97,9 +109,17 @@ function unInternetError() {
     internetError();
   }
 }
-document.querySelector(".rsampad-iframe").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
-window.onresize = () => {
+if (location.href === "<?php echo $server; ?>/login/" || location.href === "<?php echo $server; ?>/login") {
+
+}else {
   document.querySelector(".rsampad-iframe").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
+}
+window.onresize = () => {
+  if (location.href === "<?php echo $server; ?>/login/" || location.href === "<?php echo $server; ?>/login") {
+
+  }else {
+    document.querySelector(".rsampad-iframe").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
+  }
 }
 </script>
 </head>

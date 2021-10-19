@@ -21,6 +21,9 @@ ROUTE::get("/dashboard/" , function () {
 ROUTE::get("/admin/" , function () {
     include(__DIR__ . "/assets/pages/admin.php");
 });
+ROUTE::get("/logout/" , function () {
+    include(__DIR__ . "/assets/pages/logout.php");
+});
 ?>
 <link class="four-sado-four-style" rel="stylesheet" href="/assets/css/style.min.css">
 <div style="text-align: center;" class="four-sado-four-container container">
