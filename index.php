@@ -6,9 +6,6 @@ ROUTE::get("/" , function () {
 ROUTE::get("/login/" , function () {
     include(__DIR__ . "/assets/pages/login.php");
 });
-ROUTE::get("/home/" , function () {
-    include(__DIR__ . "/assets/pages/home.php");
-});
 ROUTE::get("/send/" , function () {
     include(__DIR__ . "/assets/pages/send.php");
 });
