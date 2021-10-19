@@ -112,14 +112,15 @@ function unInternetError() {
 if (location.href === "<?php echo $server; ?>/login/" || location.href === "<?php echo $server; ?>/login") {
 
 }else {
-  document.querySelector(".rsampad-iframe").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
+  document.querySelector(".main").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
 }
 window.onresize = () => {
   if (location.href === "<?php echo $server; ?>/login/" || location.href === "<?php echo $server; ?>/login") {
 
   }else {
-    document.querySelector(".rsampad-iframe").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
+    document.querySelector(".main").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
   }
 }
+const api_server = "<?php echo $server ?>/api";
 </script>
 </head>

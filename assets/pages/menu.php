@@ -11,16 +11,16 @@
           <a class="nav-link active" aria-current="page" href="/" dideo-checked="true">خانه</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="admin" dideo-checked="true">پنل مدیریت</a>
+          <a class="nav-link" href="/admin/" dideo-checked="true">پنل مدیریت</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="dashboard" dideo-checked="true">داشبورد</a>
+          <a class="nav-link" href="/dashboard/" dideo-checked="true">داشبورد</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="send" dideo-checked="true">ارسال درخواست امتیاز</a>
+          <a class="nav-link" href="/send/" dideo-checked="true">ارسال درخواست امتیاز</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="get" dideo-checked="true">وضعیت درخواست ها</a>
+          <a class="nav-link" href="/get/" dideo-checked="true">وضعیت درخواست ها</a>
         </li>
       </ul>
     </div>

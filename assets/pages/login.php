@@ -74,7 +74,6 @@ if (isset($user_data)) {
 }
 ?>
 <script>
-const api_server = "<?php echo $server ?>/api";
 document.querySelector("#sub").addEventListener("click" , send);
 function send() {
   let uname = $("#floatingInput").val();
