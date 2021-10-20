@@ -1,8 +1,3 @@
-document.querySelector("#scoreSub").addEventListener("click" , sendScoreRequest);
-function sendScoreRequest() {
-
-}
-
 document.querySelector("#sub").addEventListener("click" , send);
 function send() {
   let uname = $("#floatingInput").val();
@@ -26,14 +21,18 @@ function send() {
     }
   });
 }
+function btsErrorBox(txt , cls) {
+  document.body.innerHTML += `<div class="${cls}"><div class="alert alert-danger" role="alert">${txt}</div></div>`;
+}
+function retBtsErrorBox(txt , cls) {
+    return `<div class="${cls} alert alert-danger" role="alert">${txt}</div>`;
+}
 function check(txt , u , p) {
   if (txt === "true") {
     $("#floatingInput").removeClass("is-invalid");
     $("#floatingPassword").removeClass("is-invalid");
     $("#floatingInput").addClass("is-valid");
     $("#floatingPassword").addClass("is-valid");
-    localStorage.setItem("uname" , u);
-    localStorage.setItem("passw" , p);
     setCookie("uname" , u , 1);
     setCookie("passw" , p , 1);
     location.assign("/");
@@ -43,4 +42,23 @@ function check(txt , u , p) {
     $("#floatingInput").addClass("is-invalid");
     $("#floatingPassword").addClass("is-invalid");
   }
+}
+document.querySelector("#scoreSub").addEventListener("click" , sendScoreRequest);
+function sendScoreRequest() {
+  splash();
+  $.get({
+    url: api_server + "/send/?n=" + $("#teadad").val() + "&f=" + $("#about").val() + "&s=" + $_COOKIE["uname"] + "&p=" + $_COOKIE["passw"],
+    success: (txt) => {
+      unsplash();
+      if (txt === "true") {
+          Box("ارسال موفقیت آمیز بود." , "باید منتظر تایید کادر مدرسه باشید!" , "sendBox");
+      }else {
+          btsErrorBox("خطا در ارسال اطلاعات" , cls);
+      }
+    },
+    error: () => {
+        unsplash();
+        noneTitleBox(retBtsErrorBox("خطا در ارسال اطلاعات" , "error-in-send-score-request") , "eissr");
+    }
+  });
 }

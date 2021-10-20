@@ -4,7 +4,7 @@ $server = "http://localhost:8080";
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";
-$dbn = "DBstd";
+$dbn = "dbstd";
 $dbc = mysqli_connect($dbh , $dbu , $dbp , $dbn);
 $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
 if (!$dbc) {
@@ -49,6 +49,13 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
 <script src="<?php echo $server; ?>/assets/js/jquery.min.js"></script>
 <script src="<?php echo $server; ?>/assets/js/app.js"></script>
 <script>
+const api_server = "<?php echo $server ?>/api";
+var cookies = document.cookie.split("; ");
+var $_COOKIE = [];
+cookies.forEach((cookie) => {
+    let c = cookie.split("=");
+    $_COOKIE[c[0]] = c[1];
+});
 var cci = setInterval(() => {
   console.clear();
 } , 100);
@@ -62,17 +69,10 @@ function setCookie(cname, cvalue, exdays) {
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-try {
-  if (localStorage.getItem("uname") !==null || localStorage.getItem("passw") !==null) {
-    var uname = localStorage.getItem("uname");
-    var passw = localStorage.getItem("passw");
-  }else {
-    if (location.href === "<?php echo $server ?>/login/" || location.href === "<?php echo $server ?>/login") {}else{
-        location.assign("/login/");
-    }
+if ($_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined) {}else {
+  if (location.pathname === "/login/" || location.href === "/login") {}else{
+      //location.assign("/login/");
   }
-} catch (e) {
-  location.assign("/login/");
 }
 function splash() {
     document.body.innerHTML += "<div class='splash'><img src='assets/img/loader.svg'></div>";
@@ -98,6 +98,36 @@ function internetError(){
       </div>
     </div>
   </div>`;
+}
+function Box(title , value , cls){
+  document.body.innerHTML += `
+  <div class="Box modal-dialog Box ${cls}" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-body p-4 text-center">
+        <h5 class="mb-0">${title}</h5>
+        <p class="mb-0">${value}</p>
+      </div>
+      <div class="modal-footer flex-nowrap p-0">
+        <button onclick="unBox('${cls}');" style="width: 100%;" type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right"><strong>تایید</strong></button>
+      </div>
+    </div>
+  </div>`;
+}
+function noneTitleBox(value , cls){
+  document.body.innerHTML += `
+  <div class="Box modal-dialog Box ${cls}" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-body p-4 text-center">
+        <p class="mb-0">${value}</p>
+      </div>
+      <div class="modal-footer flex-nowrap p-0">
+        <button onclick="unBox('${cls}');" style="width: 100%;" type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right"><strong>تایید</strong></button>
+      </div>
+    </div>
+  </div>`;
+}
+function unBox(cls) {
+  document.querySelector("." + cls).remove();
 }
 window.onOnline = () => {
   unInternetError();
@@ -129,6 +159,5 @@ window.onresize = () => {
     document.querySelector(".main").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
   }
 }
-const api_server = "<?php echo $server ?>/api";
 </script>
 </head>

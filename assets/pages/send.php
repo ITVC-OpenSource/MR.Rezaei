@@ -6,11 +6,11 @@ include(__DIR__ . "/menu.php");
   <img class="mb-4" src="/favicon.ico" alt="" width="150px">
   <h1 class="h4 mb-3 fw-normal">برای ارسال درخواست امتیاز فرم زیر را پر کنید</h1>
   <div class="form-floating">
-    <input autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingInput">
+    <input autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingInput" id="teadad">
     <label for="floatingInput">چند:</label>
   </div>
   <div class="form-floating">
-    <input autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingPassword">
+    <input autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingPassword" id="about">
     <label for="floatingPassword">بابت:</label>
   </div>
   <button onclick="sendScoreRequest();" id="scoreSub" class="w-100 btn btn-lg btn-primary">ارسال</button>
