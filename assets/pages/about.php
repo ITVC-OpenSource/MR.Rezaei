@@ -3,7 +3,7 @@ include(__DIR__ . "/../php/config.php");
 include(__DIR__ . "/menu.php");
 ?>
 <body class="text-secondary bg-light text-center" style="display: inline;">
-    <table class="table caption-top table-hover table-white" style="direction: rtl;margin-top: 60px;">
+    <table class="container main table caption-top table-hover table-white" style="direction: rtl;margin-top: 60px;">
     <caption style="text-align: center;">کد نویسی شده توسط:</caption>
     <thead>
         <tr>
