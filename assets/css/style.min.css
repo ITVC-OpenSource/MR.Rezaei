@@ -5,6 +5,9 @@
 *{
   font-family: AMYYekan;
 }
+body{
+  display: inline;
+}
 .menu{
   list-style-type: none;
 }
@@ -104,7 +107,6 @@
   transform: translateX(-50%);
   bottom: 0;
   width: 100vw;
-  height: calc(100vh - 55px);
 }
 #floatingPassword{
   border-top-left-radius: 0;

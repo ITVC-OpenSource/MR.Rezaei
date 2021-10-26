@@ -1,6 +1,6 @@
 <?php
 session_start();
-$server = "http://localhost:8080";
+$server = "http://192.168.1.101:8080";
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";

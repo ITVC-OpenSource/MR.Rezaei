@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/" dideo-checked="true">خانه</a>
+          <a class="nav-link" aria-current="page" href="/" dideo-checked="true">خانه</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/admin/" dideo-checked="true">پنل مدیریت</a>
@@ -30,3 +30,12 @@
   </div>
 </nav>
 </div>
+<script>
+document.querySelectorAll(".nav-link").forEach(element => {
+  if (element.href === location.href) {
+    $(element).addClass("active");
+  }else{
+    $(element).removeClass("active");
+  }
+});
+</script>

@@ -1,3 +1,8 @@
+document.body.classList.forEach((a) => {
+  if (a === "text-secondary") {} else {
+    $("body").addClass("text-secondary");
+  }
+});
 document.querySelector("#sub").addEventListener("click" , send);
 function send() {
   let uname = $("#floatingInput").val();
