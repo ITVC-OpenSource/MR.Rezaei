@@ -1,9 +1,12 @@
 @font-face {
-  font-family: AMYSans;
+  font-family: AMYYekan;
   src: url("../font/AMYYekan.ttf");
 }
+*{
+  font-family: AMYYekan;
+}
 .menu{
-      list-style-type: none;
+  list-style-type: none;
 }
 #open-menu{
   display: none;

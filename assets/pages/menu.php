@@ -22,6 +22,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/get/" dideo-checked="true">وضعیت درخواست ها</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/" dideo-checked="true">درباره</a>
+        </li>
       </ul>
     </div>
   </div>
