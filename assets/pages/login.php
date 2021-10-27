@@ -1,4 +1,5 @@
-<?php include(__DIR__ . '/header.php'); ?>
+<?php include(__DIR__ . '/header.php');
+ ?>
 <body class="text-center">
   <main class="form-signin">
     <div class="login-frm">

@@ -10,6 +10,13 @@ $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
 if (!$dbc) {
   echo "Database connection error!<br>Please try later...";
 }
+$type = $_POST['type'];
+$name = $_POST['name'];
+$ncode = $_POST['ncode'];
+$uname = $_POST['uname'];
+$passw = $_POST['passw'];
+$query = "INSERT into `users` (type, name, national_code, uname, passw)
+VALUES ('$type', '$name', '$ncode','$uname','$passw')";
 if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
   $uname = $_COOKIE['uname'];
   $passw = $_COOKIE['passw'];
@@ -69,10 +76,7 @@ function setCookie(cname, cvalue, exdays) {
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-if ($_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined) {}else {
-  if (location.pathname === "/login/" || location.href === "/login") {}else{
-      //location.assign("/login/");
-  }
+if ($_COOKIE["name"] !==undefined || $_COOKIE["ncode"] !==undefined || $_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined) {}else {
 }
 function splash() {
     document.body.innerHTML += "<div class='splash'><img src='assets/img/loader.svg'></div>";

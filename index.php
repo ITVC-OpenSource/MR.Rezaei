@@ -25,8 +25,3 @@ ROUTE::get("/about/" , function () {
     include(__DIR__ . "/assets/pages/about.php");
 });
 ?>
-<link class="four-sado-four-style" rel="stylesheet" href="/assets/css/style.min.css">
-<div style="text-align: center;" class="four-sado-four-container container">
-  <h1 style="color: crimson;font-size: 500;margin: 0;">404</h1>
-  <h3 style="color: crimson;font-size: 50;">You can't get this folder from this server!</h3>
-</div>

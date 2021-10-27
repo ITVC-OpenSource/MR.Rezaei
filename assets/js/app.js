@@ -7,6 +7,9 @@ if (location.pathname === "login/" || location.pathname === "login") {} else {
 }
 document.querySelector("#sub").addEventListener("click" , send);
 function send() {
+  let type = $("#floatingInput").val();
+  let name = $("#floatingInput").val();
+  let ncode = $("#floatingInput").val();
   let uname = $("#floatingInput").val();
   let passw = $("#floatingPassword").val();
   let rmm = $("#remember-me").val();
@@ -15,7 +18,7 @@ function send() {
     url: api_server + "/login/?u=" + uname + "&p=" + passw,
     success: (txt) => {
       let text = txt.replace("" , "");
-      check(text , uname , passw);
+      check(text , type , name , ncode , uname , passw);
       unsplash();
     },
     error: () => {
