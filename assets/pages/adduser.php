@@ -13,16 +13,17 @@ if (isset($_POST['sub'])) {
 <?php
   include(__DIR__ . "/menu.php");
 ?>
-  <main class="form-signin main">
+<div class="main" style="width: 100%;">
+  <div class="form-signin">
     <form action="" method="post">
-    <div class="form-floating">
-      <select name="type" class="form-control" id="floatingInput">
-        <option>مدیر کل</option>
-        <option>مدیر</option>
-        <option>دانش آموز</option>
-      </select>
-      <label>نقش</label>
-    </div>
+      <div class="form-floating">
+        <select name="type" class="form-control" id="floatingInput">
+          <option>مدیر کل</option>
+          <option>مدیر</option>
+          <option>دانش آموز</option>
+        </select>
+        <label>نقش</label>
+      </div>
       <div class="form-floating">
         <input name="name" autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingInput">
         <label>نام و نام خانوادگی</label>
@@ -32,64 +33,31 @@ if (isset($_POST['sub'])) {
         <label>کدملی</label>
       </div>
       <div class="form-floating">
-        <input name="uname" autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingInput">
-        <label>نام کاربری</label>
-      </div>
-      <div class="form-floating">
-        <input name="passw" autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingPassword">
-        <label>گذرواژه</label>
-      </div>
-      <br>
-      <div class="form-floating">
-        <input id="sub" type="submit" value="ایجاد کاربر" name="sub" class="w-100 btn btn-lg btn-primary">
-      </div>
-    </form>
-  </main>
+          <input name="uname" autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingInput">
+          <label>نام کاربری</label>
+        </div>
+        <div class="form-floating">
+          <input name="passw" autocomplete="off" dir="ltr" type="text" class="form-control" id="floatingPassword">
+          <label>گذرواژه</label>
+        </div>
+        <br>
+        <div class="form-floating">
+          <input id="sub" type="submit" value="ایجاد کاربر" name="sub" class="w-100 btn btn-lg btn-primary">
+        </div>
+      </form>
+    </div>
+</div>
 </body>
-<style>
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
-}
-
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-}
-
-.form-signin .checkbox {
-  font-weight: 400;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-#floatingInput{
-  border-bottom-left-radius: unset!important;
-  border-bottom-right-radius: unset!important;
+<style media="screen">
+.form-signin{
+  width: 100%!important;
+  max-width: 330px!important;
+  padding: 15px!important;
+  position: absolute!important;
+  top: 50%!important;
+  left: 50%!important;
+  transform: translate(-50%)!important;
+  margin-top: 15%!important;
 }
 </style>
 </html>
