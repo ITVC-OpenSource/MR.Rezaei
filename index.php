@@ -24,4 +24,7 @@ ROUTE::get("/logout/" , function () {
 ROUTE::get("/about/" , function () {
     include(__DIR__ . "/assets/pages/about.php");
 });
+ROUTE::get("/add_user/" , function () {
+    include(__DIR__ . "/assets/pages/adduser.php");
+});
 ?>

@@ -1,18 +1,20 @@
 <?php
- include(__DIR__ . '/header.php');
-     $type = $_POST['type'];
-     $name = $_POST['name'];
-     $ncode = $_POST['ncode'];
- 		 $uname = $_POST['uname'];
- 		 $passw = $_POST['passw'];
- 		$query = "INSERT into `users` (type, name, national_code, uname, passw)
- 	VALUES ('$type', '$name', '$ncode','$uname','$passw')";
- ?>
+include(__DIR__ . "/../php/config.php");
+if (isset($_POST['sub'])) {
+  $type = $_POST['type'];
+  $name = $_POST['name'];
+  $ncode = $_POST['ncode'];
+  $uname = $_POST['uname'];
+  $passw = $_POST['passw'];
+  $query = "INSERT into `users` (type, name, national_code, uname, passw) VALUES ('$type', '$name', '$ncode','$uname','$passw')";
+}
+?>
 <body class="text-center">
-  <main class="form-signin">
-    <form action="<?php
-    __DIR__ . "/../php/config.php"
-    ?>" method="post">
+<?php
+  include(__DIR__ . "/menu.php");
+?>
+  <main class="form-signin main">
+    <form action="" method="post">
     <div class="form-floating">
       <select name="type" class="form-control" id="floatingInput">
         <option>مدیر کل</option>
@@ -39,7 +41,7 @@
       </div>
       <br>
       <div class="form-floating">
-        <input id="sub" type="submit" value="ایجاد کاربر"  class="w-100 btn btn-lg btn-primary">
+        <input id="sub" type="submit" value="ایجاد کاربر" name="sub" class="w-100 btn btn-lg btn-primary">
       </div>
     </form>
   </main>

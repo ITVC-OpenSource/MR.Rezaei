@@ -1,4 +1,3 @@
-<?php include(__DIR__ . "/../php/config.php"); ?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
   <head>

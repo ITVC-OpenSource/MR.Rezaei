@@ -10,13 +10,7 @@ $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
 if (!$dbc) {
   echo "Database connection error!<br>Please try later...";
 }
-$type = $_POST['type'];
-$name = $_POST['name'];
-$ncode = $_POST['ncode'];
-$uname = $_POST['uname'];
-$passw = $_POST['passw'];
-$query = "INSERT into `users` (type, name, national_code, uname, passw)
-VALUES ('$type', '$name', '$ncode','$uname','$passw')";
+include(__DIR__ . "/../pages/header.php");
 if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
   $uname = $_COOKIE['uname'];
   $passw = $_COOKIE['passw'];
