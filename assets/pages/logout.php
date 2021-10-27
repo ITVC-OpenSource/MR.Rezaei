@@ -4,9 +4,5 @@ unset($_COOKIE['uname']);
 unset($_COOKIE['passw']);
 ?>
 <script>
-if ($_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined) {
-    location.reload();
-} else {
-    location.assign("/login/");
-}
+location.assign("/login/");
 </script>
