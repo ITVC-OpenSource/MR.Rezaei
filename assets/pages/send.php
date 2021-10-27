@@ -5,7 +5,7 @@ include(__DIR__ . "/../php/config.php");
 <?php
 include(__DIR__ . "/menu.php");
 ?>
-<div class="form-signin main p-1">
+<div class="container form-signin main text-center p-1">
   <img class="mb-4" src="/favicon.ico" alt="" width="150px">
   <h1 class="h4 mb-3 fw-normal">برای ارسال درخواست امتیاز فرم زیر را پر کنید</h1>
   <div class="form-floating">
@@ -18,3 +18,4 @@ include(__DIR__ . "/menu.php");
   </div>
   <button onclick="sendScoreRequest();" id="scoreSub" class="w-100 btn btn-lg btn-primary">ارسال</button>
   <p class="mt-5 mb-3 text-muted" dir="ltr">©1400</p>
+</div>
