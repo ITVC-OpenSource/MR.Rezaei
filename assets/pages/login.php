@@ -1,5 +1,5 @@
-<?php include(__DIR__ . '/header.php');
- ?>
+<?php include(__DIR__ . '/../php/config.php'); ?>
+<?php include(__DIR__ . '/menu.php'); ?>
 <body class="text-center">
   <main class="form-signin">
     <div class="login-frm">
@@ -41,7 +41,10 @@ body {
   width: 100%;
   max-width: 330px;
   padding: 15px;
-  margin: auto;
+  margin-top: 60px;
+  height: calc(100% - 60px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .form-signin .checkbox {

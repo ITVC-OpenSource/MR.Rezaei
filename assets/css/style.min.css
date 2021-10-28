@@ -108,6 +108,7 @@ body {
 .main{
   position: absolute;
   top: 60px;
+  width: 100%;
 }
 #floatingPassword{
   border-top-left-radius: 0;
@@ -120,6 +121,7 @@ body {
     left: 50%;
     transform: translate(-50% , -50%);
     width: max-content;
+    z-index: 1;
 }
 .form-signin {
   width: 100%;
@@ -127,7 +129,6 @@ body {
   padding: 15px;
   margin: auto;
   position: absolute;
-  top: 50%;
   left: 50%;
   transform: translate(-50% , -50%);
 }
@@ -155,4 +156,11 @@ body {
 #floatingInput{
   border-bottom-left-radius: unset!important;
   border-bottom-right-radius: unset!important;
+}
+.drk-bg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(0 , 0 , 0 , 0.5);
 }

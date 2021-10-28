@@ -1,16 +1,15 @@
 <?php
 session_start();
-$server = "http://localhost:8080";
+$server = "http://192.168.1.100:8080";
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";
 $dbn = "dbstd";
 $dbc = mysqli_connect($dbh , $dbu , $dbp , $dbn);
 $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
-if (!$dbc) {
+if (!$dbc or !$PDO) {
   echo "Database connection error!<br>Please try later...";
 }
-include(__DIR__ . "/../pages/header.php");
 if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
   $uname = $_COOKIE['uname'];
   $passw = $_COOKIE['passw'];
@@ -37,7 +36,13 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
   </script>";
 }
 ?>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="<?php echo $server; ?>/assets/css/style.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دبیرستان استعداد های درخشان شهید دکتر رمضانخانی</title>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<?php echo $server; ?>/assets/css/bootstrap.min.css">
@@ -58,11 +63,11 @@ cookies.forEach((cookie) => {
     $_COOKIE[c[0]] = c[1];
 });
 var cci = setInterval(() => {
-  console.clear();
+  //console.clear();
 } , 100);
 window.onload = () => {
   setTimeout(() => {clearInterval(cci)} , 1);
-  console.clear();
+  //console.clear();
 }
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -99,14 +104,17 @@ function internetError(){
 }
 function Box(title , value , cls){
   document.body.innerHTML += `
-  <div class="Box modal-dialog Box ${cls}" role="document">
-    <div class="modal-content rounded-4 shadow">
-      <div class="modal-body p-4 text-center">
-        <h5 class="mb-0">${title}</h5>
-        <p class="mb-0">${value}</p>
-      </div>
-      <div class="modal-footer flex-nowrap p-0">
-        <button onclick="unBox('${cls}');" style="width: 100%;" type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right"><strong>تایید</strong></button>
+  <div class="${cls}">
+  <div class='drk-bg'></div>
+    <div class="modal-dialog Box" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-body p-4 text-center">
+          <h5 class="mb-0">${title}</h5>
+          <p class="mb-0">${value}</p>
+        </div>
+        <div class="modal-footer flex-nowrap p-0">
+          <button onclick="unBox('${cls}');" style="width: 100%;" type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right"><strong>تایید</strong></button>
+        </div>
       </div>
     </div>
   </div>`;
@@ -143,18 +151,6 @@ function unInternetError() {
       document.querySelector(".internetError").remove();
     }
     internetError();
-  }
-}
-if (location.href === "<?php echo $server; ?>/login/" || location.href === "<?php echo $server; ?>/login") {
-
-}else {
-  document.querySelector(".main").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
-}
-window.onresize = () => {
-  if (location.href === "<?php echo $server; ?>/login/" || location.href === "<?php echo $server; ?>/login") {
-
-  }else {
-    document.querySelector(".main").height = "calc(100vh - " + document.querySelector(".ds-menu").offsetHeight + ")!important";
   }
 }
 </script>

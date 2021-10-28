@@ -6,7 +6,12 @@ if (isset($_POST['sub'])) {
   $ncode = $_POST['ncode'];
   $uname = $_POST['uname'];
   $passw = $_POST['passw'];
-  $query = "INSERT into `users` (type, name, national_code, uname, passw) VALUES ('$type', '$name', '$ncode','$uname','$passw')";
+  $res = $PDO->query("INSERT into `users` (`type`, `name`, `national_code`, `uname`, `passw`) VALUES ('$type', '$name', '$ncode','$uname','$passw')");
+  if (!$res) {
+    echo "Error";
+  }
+}else {
+  echo "isset";
 }
 ?>
 <body class="text-center">
@@ -15,7 +20,8 @@ if (isset($_POST['sub'])) {
 ?>
 <div class="main" style="width: 100%;">
   <div class="form-signin">
-    <form action="" method="post">
+    <img src="/favicon.ico" style="margin-bottom: 10px;" width="150px" height="150px">
+    <form action="<?php echo $server; ?>/add_user/" method="post">
       <div class="form-floating">
         <select name="type" class="form-control" id="floatingInput">
           <option>مدیر کل</option>
@@ -42,9 +48,10 @@ if (isset($_POST['sub'])) {
         </div>
         <br>
         <div class="form-floating">
-          <input id="sub" type="submit" value="ایجاد کاربر" name="sub" class="w-100 btn btn-lg btn-primary">
+          <button id="sub" type="submit" name="sub" class="w-100 btn btn-lg btn-primary">ایجاد کاربر</button>
         </div>
       </form>
+      <p class="mt-5 mb-3 text-muted" dir="ltr">©1400</p>
     </div>
 </div>
 </body>
@@ -57,7 +64,6 @@ if (isset($_POST['sub'])) {
   top: 50%!important;
   left: 50%!important;
   transform: translate(-50%)!important;
-  margin-top: 15%!important;
 }
 </style>
 </html>
