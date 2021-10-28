@@ -20,32 +20,28 @@ function check(txt , u , p) {
     $("#floatingPassword").addClass("is-invalid");
   }
 }
-document.querySelector("#scoreSub").addEventListener("click" , sendScoreRequest);
-function sendScoreRequest() {
-  splash();
-  $.get({
-    url: api_server + "/send/?n=" + $(".teadad").val() + "&f=" + $(".about").val() + "&s=" + $_COOKIE["uname"] + "&p=" + $_COOKIE["passw"],
-    success: (txt) => {
-      unsplash();
-      if (txt === "true") {
-          Box("ارسال موفقیت آمیز بود." , "باید منتظر تایید کادر مدرسه باشید!" , "sendBox");
-      }else {
-          btsErrorBox("خطا در ارسال اطلاعات" , cls);
-      }
-    },
-    error: () => {
+if (document.querySelector("#scoreSub") !== null) {
+  document.querySelector("#scoreSub").addEventListener("click" , sendScoreRequest);
+  function sendScoreRequest() {
+    splash();
+    $.get({
+      url: api_server + "/send/?n=" + $(".teadad").val() + "&f=" + $(".about").val() + "&s=" + $_COOKIE["uname"] + "&p=" + $_COOKIE["passw"],
+      success: (txt) => {
         unsplash();
-        noneTitleBox(retBtsErrorBox("خطا در ارسال اطلاعات" , "error-in-send-score-request") , "eissr");
-    }
-  });
+        if (txt === "true") {
+            Box("ارسال موفقیت آمیز بود." , "باید منتظر تایید کادر مدرسه باشید!" , "sendBox");
+        }else {
+            btsErrorBox("خطا در ارسال اطلاعات" , cls);
+        }
+      },
+      error: () => {
+          unsplash();
+          noneTitleBox(retBtsErrorBox("خطا در ارسال اطلاعات" , "error-in-send-score-request") , "eissr");
+      }
+    });
+  }
 }
 if (location.pathname === "login/" || location.pathname === "login") {} else {
-  document.body.classList.forEach((a) => {
-    if (a === "text-secondary") {} else {
-      $("body").addClass("text-secondary");
-    }
-  });
-  document.querySelector("#sub").addEventListener("click" , send);
 function send() {
   let type = $("#floatingInput").val();
   let name = $("#floatingInput").val();

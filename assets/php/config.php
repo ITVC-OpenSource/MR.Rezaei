@@ -1,6 +1,6 @@
 <?php
 session_start();
-$server = "http://192.168.1.100:8080";
+$server = "http://192.168.1.101:8080";
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";
@@ -84,10 +84,6 @@ function unsplash() {
     document.querySelector(".splash").remove();
 }
 $("body").addClass("bg-light");
-setTimeout(() => {
-  document.querySelector(".four-sado-four-container").remove();
-  document.querySelector(".four-sado-four-style").remove();
-} , 2);
 function internetError(){
   document.body.innerHTML += `
   <div class="modal-dialog internetError" role="document">
