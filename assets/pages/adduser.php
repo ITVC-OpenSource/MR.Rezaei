@@ -1,6 +1,7 @@
 <?php
 include(__DIR__ . "/../php/config.php");
-if (isset($_POST['sub'])) {
+function sub()
+{
   $type = $_POST['type'];
   $name = $_POST['name'];
   $ncode = $_POST['ncode'];
@@ -20,11 +21,15 @@ if (isset($_POST['sub'])) {
 ?>
 <div class="main" style="width: 100%;">
   <div class="form-signin">
+<<<<<<< HEAD
     <img src="/favicon.ico" style="margin-bottom: 10px;" width="150px" height="150px">
     <form action="<?php echo $server; ?>/add_user/" method="post">
+=======
+    <form action="<?php __DIR__ . "/../php/config.php"?>" method="post">
+>>>>>>> b19b5e0a977f3b7b959726aa8293f866f7b9df51
       <div class="form-floating">
         <select name="type" class="form-control" id="floatingInput">
-          <option>مدیر کل</option>
+          <option>مدیرکل</option>
           <option>مدیر</option>
           <option>دانش آموز</option>
         </select>

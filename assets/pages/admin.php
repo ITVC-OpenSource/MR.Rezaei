@@ -1,6 +1,6 @@
 <?php
   include(__DIR__ . "/../php/config.php");
-  if ($user_data['type'] == "admin" || $user_data['type'] == "full_admin") {?>
+  if ($user_data['type'] == "مدیر" || $user_data['type'] == "مدیرکل") {?>
 <div class="main">
   Hello!
 </div>

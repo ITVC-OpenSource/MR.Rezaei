@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 <?php include(__DIR__ . '/../php/config.php'); ?>
 <?php include(__DIR__ . '/menu.php'); ?>
+=======
+<?php include(__DIR__ . '/header.php');
+include(__DIR__ . "/../php/config.php");
+ ?>
+>>>>>>> b19b5e0a977f3b7b959726aa8293f866f7b9df51
 <body class="text-center">
   <main class="form-signin">
     <div class="login-frm">
