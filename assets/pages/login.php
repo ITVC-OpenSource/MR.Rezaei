@@ -1,4 +1,5 @@
 <?php include(__DIR__ . '/header.php');
+include(__DIR__ . "/../php/config.php");
  ?>
 <body class="text-center">
   <main class="form-signin">

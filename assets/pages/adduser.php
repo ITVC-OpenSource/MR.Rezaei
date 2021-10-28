@@ -1,6 +1,7 @@
 <?php
 include(__DIR__ . "/../php/config.php");
-if (isset($_POST['sub'])) {
+function sub()
+{
   $type = $_POST['type'];
   $name = $_POST['name'];
   $ncode = $_POST['ncode'];
@@ -15,10 +16,10 @@ if (isset($_POST['sub'])) {
 ?>
 <div class="main" style="width: 100%;">
   <div class="form-signin">
-    <form action="" method="post">
+    <form action="<?php __DIR__ . "/../php/config.php"?>" method="post">
       <div class="form-floating">
         <select name="type" class="form-control" id="floatingInput">
-          <option>مدیر کل</option>
+          <option>مدیرکل</option>
           <option>مدیر</option>
           <option>دانش آموز</option>
         </select>
@@ -42,7 +43,7 @@ if (isset($_POST['sub'])) {
         </div>
         <br>
         <div class="form-floating">
-          <input id="sub" type="submit" value="ایجاد کاربر" name="sub" class="w-100 btn btn-lg btn-primary">
+          <button id="sub" type="submit" name="sub" class="w-100 btn btn-lg btn-primary">ایجاد کاربر</button>
         </div>
       </form>
     </div>
