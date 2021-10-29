@@ -12,7 +12,7 @@ function check(txt , u , p) {
     $("#floatingPassword").addClass("is-valid");
     setCookie("uname" , u , 1);
     setCookie("passw" , p , 1);
-    location.assign("/");
+    location.assign("/dashboard/");
   } else {
     $("#floatingInput").removeClass("is-valid");
     $("#floatingPassword").removeClass("is-valid");

@@ -15,7 +15,7 @@
       </div>
       <div class="checkbox mb-3">
         <label>
-          <input id="remember-me" type="checkbox" value="remember-me"> مرا به خاطر بسپار
+          <input id="remember-me" checked="true" disabled type="checkbox" value="remember-me"> مرا به خاطر بسپار
         </label>
       </div>
       <button onclick="send();" id="sub" class="w-100 btn btn-lg btn-primary">ورود</button>
@@ -72,9 +72,9 @@ body {
   border-bottom-right-radius: unset!important;
 }
 </style>
-<?php
-if (isset($user_data)) {
-  echo "<script>location.assign('/');</script>";
+<script>
+if ($_COOKIE['uname'] === undefined && $_COOKIE['passw'] === undefined || $_COOKIE['uname'] !== "out" && $_COOKIE['passw'] !== "out") {
+  location.assign("/dashboard/");
 }
-?>
+</script>
 </html>

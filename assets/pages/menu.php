@@ -11,9 +11,6 @@
           <a class="nav-link" aria-current="page" href="/" dideo-checked="true">خانه</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/admin/" dideo-checked="true">پنل مدیریت</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="/dashboard/" dideo-checked="true">داشبورد</a>
         </li>
         <li class="nav-item">

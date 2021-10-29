@@ -10,7 +10,7 @@ $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
 if (!$dbc or !$PDO) {
   echo "Database connection error!<br>Please try later...";
 }
-if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
+if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !=="out" AND $_COOKIE['passw'] !=="out") {
   $uname = $_COOKIE['uname'];
   $passw = $_COOKIE['passw'];
   $user_query = "SELECT * FROM users WHERE uname = $uname AND passw = $passw";
@@ -19,7 +19,7 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
     $user_data = $user_quexe->fetch(PDO::FETCH_ASSOC);
   }else{
     echo "<script>
-      if (location.href === '" . $server . "/login/' || location.href === '" . $server . "/login' ) {
+      if (location.pathname === '/login/') {
         // code...
       }else{
         location.assign('" . $server . "/login/');
@@ -28,7 +28,7 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
   }
 } else {
   echo "<script>
-    if (location.href === '" . $server . "/login/' || location.href === '" . $server . "/login' ) {
+    if (location.pathname === '/login/') {
       // code...
     }else{
       location.assign('" . $server . "/login/');
@@ -40,7 +40,6 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw'])) {
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="<?php echo $server; ?>/assets/css/style.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>دبیرستان استعداد های درخشان شهید دکتر رمضانخانی</title>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -69,11 +68,20 @@ window.onload = () => {
   setTimeout(() => {clearInterval(cci)} , 1);
   //console.clear();
 }
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+// function setCookie(cname, cvalue, exdays) {
+//     var d = new Date();
+//     d.setTime(d.getTime() + (exdays*24*60*60*1000));
+//     var expires = "expires=" + d.toUTCString();
+//     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+// }
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 if ($_COOKIE["name"] !==undefined || $_COOKIE["ncode"] !==undefined || $_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined) {}else {
 }
