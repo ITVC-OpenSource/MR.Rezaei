@@ -1,7 +1,9 @@
 <?php
+if (!isset($direct)) {
+  $direct = false;
+}
 include(__DIR__ . "/../php/config.php");
-function sub()
-{
+if (isset($_POST['sub'])) {
   $type = $_POST['type'];
   $name = $_POST['name'];
   $ncode = $_POST['ncode'];
@@ -11,23 +13,21 @@ function sub()
   if (!$res) {
     echo "Error";
   }
-}else {
-  echo "isset";
 }
 ?>
 <body class="text-center">
 <?php
   include(__DIR__ . "/menu.php");
 ?>
-<div class="main" style="width: 100%;">
+<div class="main" style="width: 100%;z-index: -11111;">
   <div class="form-signin">
     <img src="/favicon.ico" style="margin-bottom: 10px;" width="150px" height="150px">
     <form action="<?php echo $server; ?>/add_user/" method="post">
       <div class="form-floating">
         <select name="type" class="form-control" id="floatingInput">
-          <option>مدیرکل</option>
-          <option>مدیر</option>
-          <option>دانش آموز</option>
+          <option value="full_admin">مدیرکل</option>
+          <option value="admin">مدیر</option>
+          <option value="student">دانش آموز</option>
         </select>
         <label>نقش</label>
       </div>
@@ -61,7 +61,6 @@ function sub()
   width: 100%!important;
   max-width: 330px!important;
   padding: 15px!important;
-  position: absolute!important;
   top: 50%!important;
   left: 50%!important;
   transform: translate(-50%)!important;

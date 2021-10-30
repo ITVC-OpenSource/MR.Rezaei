@@ -5,7 +5,7 @@
 
 <?php
   if ($user_data['type'] == "admin" || $user_data['type'] == "full_admin") {?>
-    <div class="main text-center text-seconadry">
+    <div class="main text-seconadry">
     <?php
       include(__DIR__ . "/admin_sidebar.php");
     ?>
@@ -18,9 +18,8 @@
 <?php
 }else{
 ?>
-<div class="container">
+<div class="main">
 <?php include(__DIR__ . "/std_sidebar.php"); ?>
-  شما مجوز دسترسی به این صفحه را ندارید.
 </div>
 <?php
 }

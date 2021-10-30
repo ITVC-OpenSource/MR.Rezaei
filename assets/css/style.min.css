@@ -164,3 +164,17 @@ body {
   z-index: 0;
   background-color: rgba(0 , 0 , 0 , 0.5);
 }
+.dash-div{
+  width: calc(100% - 285px);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -111;
+}
+.dash-div .main{
+  top: 0px!important;
+}
+.dash-div .main iframe {
+  width: calc(100vw - 285px);
+  height: calc(100vh - 60px);
+}

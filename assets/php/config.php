@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
 $server = "http://localhost:8080";
 $dbh = "localhost";
 $dbu = "root";
@@ -22,7 +24,7 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !
       if (location.pathname === '/login/') {
         // code...
       }else{
-        location.assign('" . $server . "/login/');
+        //slocation.assign('" . $server . "/login/');
       }
     </script>";
   }
@@ -31,7 +33,7 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !
     if (location.pathname === '/login/') {
       // code...
     }else{
-      location.assign('" . $server . "/login/');
+      //location.assign('" . $server . "/login/');
     }
   </script>";
 }
@@ -68,22 +70,13 @@ window.onload = () => {
   setTimeout(() => {clearInterval(cci)} , 1);
   //console.clear();
 }
-// function setCookie(cname, cvalue, exdays) {
-//     var d = new Date();
-//     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-//     var expires = "expires=" + d.toUTCString();
-//     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-// }
-function setCookie(name,value,days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-if ($_COOKIE["name"] !==undefined || $_COOKIE["ncode"] !==undefined || $_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined) {}else {
+if ($_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined) {}else {
 }
 function splash() {
     document.body.innerHTML += "<div class='splash'><img src='assets/img/loader.svg'></div>";

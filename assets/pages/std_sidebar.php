@@ -5,28 +5,18 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="/dashboard/?action=home" class="nav-link active" aria-current="page" dideo-checked="true">
-          خانه
+        <a id="home" href="/dashboard/?action=home" class="nav-link active" aria-current="page" dideo-checked="true">
+          خانه<i class="bi bi-house-door-fill"></i>
         </a>
       </li>
       <li>
-        <a href="/dashboard/?action=delete_user" class="nav-link text-white" dideo-checked="true">
-          حذف کاربر
+        <a id="send" href="/dashboard/?action=send" class="nav-link text-white" dideo-checked="true">
+          ارسال درخواست
         </a>
       </li>
       <li>
-        <a href="/dashboard/?action=requests" class="nav-link text-white" dideo-checked="true">
+        <a id="get" href="/dashboard/?action=requests" class="nav-link text-white" dideo-checked="true">
           درخواست ها
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard/?action=add_user" class="nav-link text-white" dideo-checked="true">
-          افزودن کاربر جدید
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard/?action=edit_user" class="nav-link text-white" dideo-checked="true">
-          ویرایش اطلاعات کاربران
         </a>
       </li>
     </ul>

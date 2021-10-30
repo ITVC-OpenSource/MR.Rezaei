@@ -73,8 +73,8 @@ body {
 }
 </style>
 <script>
-if ($_COOKIE['uname'] === undefined && $_COOKIE['passw'] === undefined || $_COOKIE['uname'] !== "out" && $_COOKIE['passw'] !== "out") {
-  location.assign("/dashboard/");
+if ($_COOKIE['uname'] !== undefined && $_COOKIE['passw'] !== undefined && $_COOKIE['uname'] !== "out" && $_COOKIE['passw'] !== "out") {
+  //location.assign("/dashboard/");
 }
 </script>
 </html>
