@@ -9,7 +9,7 @@
     <?php
       include(__DIR__ . "/admin_sidebar.php");
     ?>
-    <div class="dash-div">
+    <div class="dash-div py-1 px-1">
       <?php
         include(__DIR__ . "/dash.php");
       ?>

@@ -6,17 +6,8 @@ ROUTE::get("/" , function () {
 ROUTE::get("/login/" , function () {
     include(__DIR__ . "/assets/pages/login.php");
 });
-ROUTE::get("/send/" , function () {
-    include(__DIR__ . "/assets/pages/send.php");
-});
-ROUTE::get("/get/" , function () {
-    include(__DIR__ . "/assets/pages/get.php");
-});
 ROUTE::get("/dashboard/" , function () {
     include(__DIR__ . "/assets/pages/dashboard.php");
-});
-ROUTE::get("/admin/" , function () {
-    include(__DIR__ . "/assets/pages/admin.php");
 });
 ROUTE::get("/logout/" , function () {
     include(__DIR__ . "/assets/pages/logout.php");
@@ -31,4 +22,37 @@ ROUTE::get("/add_user/" , function () {
 ROUTE::post("/add_user/" , function () {
     include(__DIR__ . "/assets/pages/adduser.php");
 });
+ROUTE::get("/user_profile/" , function () {
+    $direct = true;
+    include(__DIR__ . "/assets/pages/profile.php");
+});
+$ro = ["login" , "dashboard" , "logout" , "about" , "add_user" , "user_profile"];
+$rt = [];
+$rs = [];
+$encoded_url = ROUTE::findURI();
+$r = [];
+foreach ($ro as $rout) {
+    if ($encoded_url[0] == $rout) {
+        $r["true"] = "true";
+    }else {
+        $r["false"] = "false";
+    }
+}
+foreach ($rt as $rout) {
+    if ($encoded_url[0] == $rout) {
+        $r["true"] = "true";
+    }else {
+        $r["false"] = "false";
+    }
+}
+foreach ($rs as $rout) {
+    if ($encoded_url[0] == $rout) {
+        $r["true"] = "true";
+    }else {
+        $r["false"] = "false";
+    }
+}
+if (in_array("true" , $r) == 0) {
+    include(__DIR__ . "/assets/pages/404.php");
+}
 ?>

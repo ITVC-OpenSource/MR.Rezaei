@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;height: calc(100vh - 65px);">
+<div class="d-md-flex d-flex flex-column flex-shrink-0 p-3 text-white bg-dark css-sidebar" style="width: 280px;height: calc(100vh - 65px);border-radius: 15px;text-align: right;margin-right: 5px;">
     <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" dideo-checked="true">
       <span class="fs-4">منو</span>
     </a>
@@ -6,17 +6,17 @@
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
         <a id="home" href="/dashboard/?action=home" class="nav-link active" aria-current="page" dideo-checked="true">
-          خانه<i class="bi bi-house-door-fill"></i>
+        <i class="bi bi-house-door-fill">  </i>خانه
         </a>
       </li>
-      <li>
+      <li class="nav-item">
         <a id="send" href="/dashboard/?action=send" class="nav-link text-white" dideo-checked="true">
-          ارسال درخواست
+        <i class="bi bi-chat-left-text-fill">  </i>ارسال درخواست
         </a>
       </li>
-      <li>
+      <li class="nav-item">
         <a id="get" href="/dashboard/?action=requests" class="nav-link text-white" dideo-checked="true">
-          درخواست ها
+        <i class="bi bi-person-lines-fill">  </i>درخواست ها
         </a>
       </li>
     </ul>

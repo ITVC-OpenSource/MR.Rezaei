@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;height: calc(100vh - 65px);border-radius: 15px;text-align: right;">
+<div class="d-md-flex d-flex flex-column flex-shrink-0 p-3 text-white bg-dark css-sidebar" style="width: 280px;height: calc(100vh - 65px);border-radius: 15px;text-align: right;margin-right: 5px;">
     <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" dideo-checked="true">
       <span class="fs-4">منو</span>
     </a>
@@ -9,24 +9,24 @@
           <i class="bi bi-house-door-fill">  </i>خانه
         </a>
       </li>
-      <li>
-        <a id="delete_user" href="/dashboard/?action=delete_user" class="nav-link text-white" dideo-checked="true">
-          <i class="bi bi-person-dash-fill">  </i>حذف کاربر
-        </a>
-      </li>
-      <li>
+      <li class="nav-item">
         <a id="requests" href="/dashboard/?action=requests" class="nav-link text-white" dideo-checked="true">
           <i class="bi bi-person-lines-fill">  </i>درخواست ها
         </a>
       </li>
-      <li>
+      <li class="nav-item">
         <a id="add_user" href="/dashboard/?action=add_user" class="nav-link text-white" dideo-checked="true">
           <i class="bi bi-person-plus-fill">  </i>افزودن کاربر جدید
         </a>
       </li>
-      <li>
+      <li class="nav-item">
         <a id="edit_user" href="/dashboard/?action=edit_user" class="nav-link text-white" dideo-checked="true">
           <i class="bi bi-pencil-square">  </i>ویرایش اطلاعات کاربران
+        </a>
+      </li>
+      <li class="nav-item">
+        <a id="delete_user" href="/dashboard/?action=delete_user" class="nav-link text-white" dideo-checked="true">
+          <i class="bi bi-person-dash-fill">  </i>حذف کاربر
         </a>
       </li>
     </ul>
@@ -34,7 +34,7 @@
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" dideo-checked="true">
         <img src="/favicon.ico" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong><?php echo $user_data["name"]; ?></strong>
+        <strong><?php echo $user_data["name"]; ?>(<?php echo $type; ?>)</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
         <li><a class="dropdown-item" href="/dashboard/?action=settings" dideo-checked="true"><i class="bi bi-gear-fill">  </i>تنظیمات سیستم</a></li>
