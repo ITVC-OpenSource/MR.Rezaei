@@ -11,6 +11,8 @@ if (isset($_GET['action'])) {
         edit_user();
     } else if ($_GET['action'] == "requests") {
         requests();
+    } else if ($_GET['action'] == "profile") {
+        profile();
     }
 } else {
     home();

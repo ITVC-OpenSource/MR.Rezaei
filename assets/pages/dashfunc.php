@@ -15,4 +15,7 @@ function requests() {
     include(__DIR__ . "/get.php");
     echo "<script>$('#requests').addClass('active');</script>";
 }
+function profile () {
+    include(__DIR__ . "/profile.php");
+}
 ?>

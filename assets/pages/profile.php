@@ -10,7 +10,7 @@ if ($user_data['type'] == "full_admin") {
 }
 ?>
 <body class="text-center">
-<div class="main">
+<div class="main" style="width: calc(100% - 0.5em);">
     <table class="table table-hover table-striped table-bordered">
         <thead>
             <th scope="col">نام و نام خانوادگی</th>
