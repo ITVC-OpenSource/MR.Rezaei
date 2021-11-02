@@ -22,11 +22,14 @@ ROUTE::get("/add_user/" , function () {
 ROUTE::post("/add_user/" , function () {
     include(__DIR__ . "/assets/pages/adduser.php");
 });
+ROUTE::get("/delete_user/" , function () {
+    include(__DIR__ . "/assets/pages/deleteuser.php");
+});
 ROUTE::get("/user_profile/" , function () {
     $direct = true;
     include(__DIR__ . "/assets/pages/profile.php");
 });
-$ro = ["login" , "dashboard" , "logout" , "about" , "add_user" , "user_profile"];
+$ro = ["login" , "dashboard" , "logout" , "about" , "add_user" , "user_profile", "delete_user"];
 $rt = [];
 $rs = [];
 $encoded_url = ROUTE::findURI();

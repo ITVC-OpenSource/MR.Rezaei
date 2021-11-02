@@ -15,7 +15,15 @@ function requests() {
     include(__DIR__ . "/get.php");
     echo "<script>$('#requests').addClass('active');</script>";
 }
-function profile () {
+function profile() {
     include(__DIR__ . "/profile.php");
+}
+function delete_user() {
+    echo "<script>$('#delete_user').addClass('active');</script>";
+    include(__DIR__ . "/deleteuser.php");
+}
+function add_user_with_file() {
+    echo "<script>$('#add_user_with_file').addClass('active');</script>";
+    include(__DIR__ . "/adduserwithfile.php");
 }
 ?>

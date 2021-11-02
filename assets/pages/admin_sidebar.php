@@ -20,6 +20,11 @@
         </a>
       </li>
       <li class="nav-item">
+        <a id="add_user_with_file" href="/dashboard/?action=add_user_with_file" class="nav-link text-white" dideo-checked="true">
+          <i class="bi bi-person-plus-fill">  </i>افزودن کاربر جدید با استفاده از فایل متنی
+        </a>
+      </li>
+      <li class="nav-item">
         <a id="edit_user" href="/dashboard/?action=edit_user" class="nav-link text-white" dideo-checked="true">
           <i class="bi bi-pencil-square">  </i>ویرایش اطلاعات کاربران
         </a>

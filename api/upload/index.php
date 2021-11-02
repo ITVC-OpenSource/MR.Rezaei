@@ -1,13 +1,14 @@
 <?php
+include(__DIR__ . "/../config.php");
 if(!empty($_FILES['file'])){
     $file = $_FILES['file'];
     if($file['error']){
-        die("مشکلی در آپلود فایل شما به وجود آمده است.");
+        die("false");
     }
     $type = $file['type'];
-    $valid_ext = ["txt"];
+    $valid_ext = ["text/plain"];
     if(!in_array($type , $valid_ext)){
-        die('فرمت فایل آپلود شده پشتیبانی نمی شود.');
+        die("false");
     }else {
         $name = $file['name'];
         $name = explode('.' , $name);
@@ -22,7 +23,26 @@ if(!empty($_FILES['file'])){
         $tmp_name = $file['tmp_name'];
         $finall_path = __DIR__ . "/../../uploaded/txt/{$name}";
         move_uploaded_file($tmp_name , $finall_path);
-        echo "فایل شما با موفقیت آپلود شد.";
+        $f = fopen(__DIR__ . "/../../uploaded/txt/{$name}" , "r");
+        $fr = fread($f , filesize(__DIR__ . "/../../uploaded/txt/{$name}"));
+        $a = explode("
+        " , $fr);
+        $res = [];
+        foreach ($a as $row) {
+            $e = explode("," , $row);
+            $r = $PDO->query("INSERT INTO `users`(`name`, `uname`, `passw`, `national_code`, `class`, `school`, `status`, `type`) VALUES ('" . $e[0] . "' , '" . $e[1] . "' , '" . $e[2] . "' , '" . $e[3] . "' , '" . $e[4] . "' , '" . $e[5] . "' , '" . $e[6] . "' , '" . $e[7] . "')");
+            if (!$r) {
+                $res['false'] = "false";
+            } else {
+                $res['true'] = "true";
+            }
+        }
+        if (in_array("false" , $res)) {
+            echo "false";
+        } else {
+            echo "true";
+        }
+        unlink(__DIR__ . "/../../uploaded/txt/{$name}");
     }
 }
 ?>

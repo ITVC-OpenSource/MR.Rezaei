@@ -1,7 +1,17 @@
 <?php
 include(__DIR__."/../php/config.php");
+$students = $PDO->query("SELECT * FROM `users` WHERE `school` = '" . $user_data['school'] . "'");
 $f_students = $PDO->query("SELECT * FROM `users` WHERE `school` = '" . $user_data['school'] . "' AND `status` = 1");
 $n_students = $PDO->query("SELECT * FROM `users` WHERE `school` = '" . $user_data['school'] . "' AND `status` = 0");
+if (isset($_GET['user'])) {
+    ?>
+    <body>
+    <?php include(__DIR__."/../pages/menu.php"); ?>
+    <div class="edit-user-form">
+        
+    </div>
+    <?php
+}else {
 ?>
 <body>
 <?php include(__DIR__."/../pages/menu.php"); ?>
@@ -45,7 +55,7 @@ $n_students = $PDO->query("SELECT * FROM `users` WHERE `school` = '" . $user_dat
                 echo "<td>" . $student['class'] . "</td>";
                 echo "<td>" . $std_type . "</td>";
                 echo "<td>" . $student['status'] . "</td>";
-                echo "<td class='text-center'><div onclick='location.assign(" . $server . "/dashboard/?edit_user&user=" . $student['id'] . ");' href=''><i class='bi bi-pencil-square text-primary' style='font-size: 17.5px;'></i></div></td>";
+                echo "<td class='text-center'><a href='/dashboard/?action=edit_user&user=" . $student['id'] . "'><i class='bi bi-pencil-square text-primary' style='font-size: 17.5px;'></i></a></td>";
                 echo "</tr>";
             }
             foreach ($n_students as $student) {
@@ -77,5 +87,6 @@ $n_students = $PDO->query("SELECT * FROM `users` WHERE `school` = '" . $user_dat
         ?>
     </tbody>
 </table>
+<?php } ?>
 </body>
 </html>

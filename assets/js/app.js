@@ -13,6 +13,13 @@ window.onload = () => {
   setTimeout(() => {clearInterval(cci)} , 1);
   //console.clear();
 }
+$(document).ready(function(){
+  $(".js-tooltip").tooltip({ placement : "top" });
+});
+var myCollapse = document.getElementById('myCollapse');
+var bsCollapse = new bootstrap.Collapse(myCollapse, {
+  toggle: false
+});
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));

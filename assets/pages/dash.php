@@ -13,6 +13,8 @@ if (isset($_GET['action'])) {
         requests();
     } else if ($_GET['action'] == "profile") {
         profile();
+    } else if ($_GET['action'] == "add_user_with_file") {
+        add_user_with_file();
     }
 } else {
     home();

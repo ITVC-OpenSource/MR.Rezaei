@@ -167,10 +167,11 @@ body {
 }
 .dash-div{
   width: calc(100% - 285px);
+  height: 100%;
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: -111;
+  z-index: 1111111;
 }
 .dash-div .main{
   top: 0px!important;
