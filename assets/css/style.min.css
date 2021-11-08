@@ -1,17 +1,25 @@
 @font-face {
-  font-family: AMYSANSMBR;
+  font-family: AMYSans;
+  src: url("../font/AMYSans.ttf");
+}
+@font-face {
+  font-family: AMYYekan;
+  src: url("../font/AMYYekan.ttf");
+}
+@font-face {
+  font-family: AMYSansMBR;
   src: url("../font/AMYSANSMBR.ttf");
 }
 @font-face {
-  font-family: AMYSANSMBM;
+  font-family: AMYSansMBM;
   src: url("../font/AMYSANSMBM.ttf");
 }
 @font-face {
-  font-family: AMYSANSMBB;
+  font-family: AMYSansMBB;
   src: url("../font/AMYSANSMBB.ttf");
 }
 *{
-  font-family: AMYSansMBR;
+  font-family: AMYYekan;
 }
 body {
   display: inline-flex;
