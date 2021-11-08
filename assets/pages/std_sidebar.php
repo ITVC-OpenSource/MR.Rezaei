@@ -38,7 +38,7 @@
 <?php
 include(__DIR__ . "/std_dashfunc.php");
 ?>
-<div class="dash-div">
+<div class="dash-div p-1">
   <?php
   if (isset($_GET['action'])) {
     if ($_GET['action'] == "home") {

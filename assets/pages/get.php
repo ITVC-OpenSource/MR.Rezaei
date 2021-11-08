@@ -54,3 +54,4 @@ $res = $PDO->query("SELECT * FROM `scores` WHERE `status` = 1");
     ?>
   </tbody>
 </table>
+</body>

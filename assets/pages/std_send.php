@@ -9,7 +9,7 @@
     <input autocomplete="off" dir="ltr" type="text" class="form-control about" id="floatingPassword">
     <label for="floatingPassword">بابت:</label>
   </div>
-  <button onclick="sendScoreRequest();" id="scoreSub" class="w-100 btn btn-lg btn-primary">ارسال</button>
+  <button onclick="sendScoreRequest();" type="button" id="scoreSub" class="w-100 btn btn-lg btn-primary">ارسال</button>
   <p class="mt-5 mb-3 text-muted" dir="ltr">©1400</p>
 </div>
 <style>

@@ -6,9 +6,9 @@
 <?php
   if ($user_data['type'] == "admin" || $user_data['type'] == "full_admin") {?>
     <div class="main text-seconadry">
-    <?php
-      include(__DIR__ . "/admin_sidebar.php");
-    ?>
+        <?php
+            include(__DIR__ . "/admin_sidebar.php");
+        ?>
     <div class="dash-div py-1 px-1">
       <?php
         include(__DIR__ . "/dash.php");

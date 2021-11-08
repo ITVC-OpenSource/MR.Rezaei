@@ -9,6 +9,7 @@ function send(){
 }
 function requests(){
     echo "<script>$('#std_get').addClass('active');</script>";
+    include(__DIR__ . "/std_get.php");
 }
 function profile(){
     include(__DIR__ . "/std_profile.php");

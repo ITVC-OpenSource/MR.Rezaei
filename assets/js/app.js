@@ -117,9 +117,11 @@ function check(txt , u , p) {
   }
 }
   function sendScoreRequest() {
+    let teadad = $(".teadad").val();
+    let about = $(".about").val();
     splash();
     $.get({
-      url: api_server + "/send/?n=" + $(".teadad").val() + "&f=" + $(".about").val() + "&s=" + $_COOKIE["uname"] + "&p=" + $_COOKIE["passw"],
+      url: api_server + "/send/?n=" + teadad + "&f=" + about + "&s=" + $_COOKIE["uname"] + "&p=" + $_COOKIE["passw"],
       success: (txt) => {
         unsplash();
         if (txt === "true") {
