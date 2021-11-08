@@ -5,32 +5,32 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a id="home" href="/dashboard/?action=home" class="nav-link text-white" aria-current="page" dideo-checked="true">
+        <a id="home" href="/dashboard/?action=home" class="nav-link text-white home" aria-current="page" dideo-checked="true">
           <i class="bi bi-house-door-fill">  </i>خانه
         </a>
       </li>
       <li class="nav-item">
-        <a id="requests" href="/dashboard/?action=requests" class="nav-link text-white" dideo-checked="true">
+        <a id="requests" href="/dashboard/?action=requests" class="nav-link text-white requests" dideo-checked="true">
           <i class="bi bi-person-lines-fill">  </i>درخواست ها
         </a>
       </li>
       <li class="nav-item">
-        <a id="add_user" href="/dashboard/?action=add_user" class="nav-link text-white" dideo-checked="true">
+        <a id="add_user" href="/dashboard/?action=add_user" class="nav-link text-white add_user" dideo-checked="true">
           <i class="bi bi-person-plus-fill">  </i>افزودن کاربر جدید
         </a>
       </li>
       <li class="nav-item">
-        <a id="add_user_with_file" href="/dashboard/?action=add_user_with_file" class="nav-link text-white" dideo-checked="true">
+        <a id="add_user_with_file" href="/dashboard/?action=add_user_with_file" class="nav-link text-white add_user_with_file" dideo-checked="true">
           <i class="bi bi-person-plus-fill">  </i>افزودن کاربر جدید با استفاده از فایل متنی
         </a>
       </li>
       <li class="nav-item">
-        <a id="edit_user" href="/dashboard/?action=edit_user" class="nav-link text-white" dideo-checked="true">
+        <a id="edit_user" href="/dashboard/?action=edit_user" class="nav-link text-white edit_user" dideo-checked="true">
           <i class="bi bi-pencil-square">  </i>ویرایش اطلاعات کاربران
         </a>
       </li>
       <li class="nav-item">
-        <a id="delete_user" href="/dashboard/?action=delete_user" class="nav-link text-white" dideo-checked="true">
+        <a id="delete_user" href="/dashboard/?action=delete_user" class="nav-link text-white delete_user" dideo-checked="true">
           <i class="bi bi-person-dash-fill">  </i>حذف کاربر
         </a>
       </li>
@@ -50,11 +50,11 @@
     </div>
   </div>
 <script>
-  document.querySelectorAll(".nav-link").forEach((c) => {
-    if (c.href === location.pathname + location.search) {
-      $(c).addClass("active");
-    }
-  });
+//   document.querySelectorAll(".nav-link").forEach((c) => {
+//     if (c.href === $server + location.pathname + location.search) {
+//       document.querySelector(c).classList.add("active");
+//     }
+//   });
 </script>
 
 

@@ -1,15 +1,18 @@
+<div class="container">
 <form action="" method="post" class="form-floating text-center form-data">
     <div class="mb-3" style="direction: ltr;">
         <label for="formFile" class="form-label">یک فایل متنی را انتخاب کنید</label>
         <input class="form-control" type="file" id="formFile" name="file">
     </div>
     <div class="form-floating">
-        <button id="sub" type="button" name="sub" class="w-100 btn btn-lg btn-primary">ایجاد کاربر</button>
+        <button id="sub" type="button" name="sub" class="w-100 btn btn-lg btn-primary">ثبت اطلاعات</button>
     </div>
 </form>
+</div>
 <script>
-document.querySelector("#sub").addEventListener("click" , upload);
+$("#sub").on("click" , upload);
 function upload(){
+    splash();
     var form = $('form')[0];
     var dataForm = new FormData(form);
     $.post({
@@ -18,6 +21,7 @@ function upload(){
         processData : false,
         contentType : false,
         success : function(res){
+            unsplash();
             if (res === "true") {
                 window.alert("اطلاعات با موفقیت ثبت شد.");
             } else {
@@ -25,7 +29,8 @@ function upload(){
             }
         },
         error : function(err){
-            console.log('error : ' + err);
+            unsplash();
+            window.alert("خطایی در ثبت اطلاعات رخ داد.");
         }
     });
 }

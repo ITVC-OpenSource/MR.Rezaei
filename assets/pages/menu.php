@@ -11,33 +11,48 @@ include(__DIR__ . "/../php/config.php");
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/" dideo-checked="true">خانه</a>
+          <a class="nav-link ds-menu-link" aria-current="page" href="/" dideo-checked="true">خانه</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard/" dideo-checked="true">داشبورد</a>
+        <li class="nav-item dsh">
+          <a class="nav-link ds-menu-link" href="/dashboard/" dideo-checked="true">داشبورد</a>
         </li>
       <?php
-        if ($type == "admin" or $type == "full_admin" or $type == "developer" or $type == "school") {
+        if ($user_data['type'] == "admin" or $user_data['type'] == "full_admin" or $user_data['type'] == "developer" or $user_data['type'] == "school") {
           ?>
-      <div class="d-sm-none admin-mobile-items">
+      <div class="d-md-none admin-mobile-items">
       <li class="nav-item">
-        <a id="requests" href="/dashboard/?action=requests" class="nav-link" dideo-checked="true">
+        <a id="requests" href="/dashboard/?action=requests" class="nav-link ds-menu-link" dideo-checked="true">
           درخواست ها
         </a>
       </li>
       <li class="nav-item">
-        <a id="add_user" href="/dashboard/?action=add_user" class="nav-link" dideo-checked="true">
+        <a id="add_user" href="/dashboard/?action=add_user" class="nav-link ds-menu-link" dideo-checked="true">
           افزودن کاربر جدید
         </a>
       </li>
       <li class="nav-item">
-        <a id="edit_user" href="/dashboard/?action=edit_user" class="nav-link" dideo-checked="true">
+        <a id="add_user" href="/dashboard/?action=add_user_with_file" class="nav-link ds-menu-link" dideo-checked="true">
+          افزودن کاربر جدید با استفاده از فایل متنی
+        </a>
+      </li>
+      <li class="nav-item">
+        <a id="edit_user" href="/dashboard/?action=edit_user" class="nav-link ds-menu-link" dideo-checked="true">
           ویرایش اطلاعات کاربران
         </a>
       </li>
       <li class="nav-item">
-        <a id="delete_user" href="/dashboard/?action=delete_user" class="nav-link" dideo-checked="true">
+        <a id="delete_user" href="/dashboard/?action=delete_user" class="nav-link ds-menu-link" dideo-checked="true">
           حذف کاربر
+        </a>
+      </li>
+      <li class="nav-item">
+        <a id="delete_user" href="/dashboard/?action=profile" class="nav-link ds-menu-link" dideo-checked="true">
+          پروفایل
+        </a>
+      </li>
+      <li class="nav-item">
+        <a id="delete_user" href="/logout/" class="nav-link ds-menu-link" dideo-checked="true">
+          خروج
         </a>
       </li>
 </div>
@@ -45,19 +60,19 @@ include(__DIR__ . "/../php/config.php");
         }else {?>
           <div class="d-sm-none std-mobile-menu">
           <li class="nav-item">
-            <a id="send" href="/dashboard/?action=send" class="nav-link" dideo-checked="true">
+            <a id="send" href="/dashboard/?action=send" class="nav-link ds-menu-link" dideo-checked="true">
             ارسال درخواست
             </a>
           </li>
           <li class="nav-item">
-            <a id="get" href="/dashboard/?action=requests" class="nav-link" dideo-checked="true">
+            <a id="get" href="/dashboard/?action=requests" class="nav-link ds-menu-link" dideo-checked="true">
             درخواست ها
             </a>
           </li>
           </div>
         <?php } ?>
         <li class="nav-item">
-          <a class="nav-link" href="/about/" dideo-checked="true">درباره</a>
+          <a class="nav-link ds-menu-link" href="/about/" dideo-checked="true">درباره</a>
         </li>
       </ul>
     </div>
@@ -65,11 +80,9 @@ include(__DIR__ . "/../php/config.php");
 </nav>
 </div>
 <script>
-document.querySelectorAll(".nav-link").forEach(element => {
-  if (element.href === location.href) {
+document.querySelectorAll(".ds-menu-link").forEach(element => {
+  if (element.href === $server + location.pathname) {
     $(element).addClass("active");
-  }else{
-    $(element).removeClass("active");
   }
 });
 </script>

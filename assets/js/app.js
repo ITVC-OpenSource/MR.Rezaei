@@ -6,19 +6,8 @@ cookies.forEach((cookie) => {
     let c = cookie.split("=");
     $_COOKIE[c[0]] = c[1];
 });
-var cci = setInterval(() => {
-  //console.clear();
-} , 100);
-window.onload = () => {
-  setTimeout(() => {clearInterval(cci)} , 1);
-  //console.clear();
-}
 $(document).ready(function(){
   $(".js-tooltip").tooltip({ placement : "top" });
-});
-var myCollapse = document.getElementById('myCollapse');
-var bsCollapse = new bootstrap.Collapse(myCollapse, {
-  toggle: false
 });
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -26,7 +15,10 @@ function setCookie(cname, cvalue, exdays) {
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-if ($_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined) {}else {
+if ($_COOKIE["uname"] !==undefined || $_COOKIE["passw"] !==undefined || $_COOKIE["uname"] !=="out" || $_COOKIE["passw"] !=="out") {}else {
+    if (location.pathname !=="/login/" || location.pathname !=="//login/") {
+        location.pathname = "/login/";
+    }
 }
 function splash() {
     document.body.innerHTML += "<div class='splash'><img src='assets/img/loader.svg'></div>";
@@ -50,8 +42,9 @@ function internetError(){
   </div>`;
 }
 function Box(title , value , cls){
+    $('body').css('height' , "100%");
   document.body.innerHTML += `
-  <div class="${cls}">
+  <div class="${cls}" style='height: 100%;'>
   <div class='drk-bg'></div>
     <div class="modal-dialog Box" role="document">
       <div class="modal-content rounded-4 shadow">
@@ -67,8 +60,9 @@ function Box(title , value , cls){
   </div>`;
 }
 function noneTitleBox(value , cls){
+    $('body').css('height' , "100%");
   document.body.innerHTML += `
-  <div class="Box modal-dialog Box ${cls}" role="document">
+  <div class="Box modal-dialog Box ${cls}" role="document" style='height: 100%;'>
     <div class="modal-content rounded-4 shadow">
       <div class="modal-body p-4 text-center">
         <p class="mb-0">${value}</p>
@@ -112,8 +106,8 @@ function check(txt , u , p) {
     $("#floatingPassword").removeClass("is-invalid");
     $("#floatingInput").addClass("is-valid");
     $("#floatingPassword").addClass("is-valid");
-    setCookie("uname" , u , 1);
-    setCookie("passw" , p , 1);
+    setCookie("uname" , u , 30);
+    setCookie("passw" , p , 30);
     location.assign("/dashboard/");
   } else {
     $("#floatingInput").removeClass("is-valid");
@@ -122,8 +116,6 @@ function check(txt , u , p) {
     $("#floatingPassword").addClass("is-invalid");
   }
 }
-if (document.querySelector("#scoreSub") !== null) {
-  document.querySelector("#scoreSub").addEventListener("click" , sendScoreRequest);
   function sendScoreRequest() {
     splash();
     $.get({
@@ -142,7 +134,6 @@ if (document.querySelector("#scoreSub") !== null) {
       }
     });
   }
-}
 if (location.pathname === "login/" || location.pathname === "login") {} else {
 function send() {
   let type = $("#floatingInput").val();

@@ -1,33 +1,32 @@
 <div class="d-md-flex d-flex flex-column flex-shrink-0 p-3 text-white bg-dark css-sidebar" style="width: 280px;height: calc(100vh - 65px);border-radius: 15px;text-align: right;margin-right: 5px;">
-    <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" dideo-checked="true">
+    <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <span class="fs-4">منو</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a id="home" href="/dashboard/?action=home" class="nav-link active" aria-current="page" dideo-checked="true">
+        <a id="std_home" href="/dashboard/?action=home" class="nav-link text-white">
         <i class="bi bi-house-door-fill">  </i>خانه
         </a>
       </li>
       <li class="nav-item">
-        <a id="send" href="/dashboard/?action=send" class="nav-link text-white" dideo-checked="true">
+        <a id="std_send" href="/dashboard/?action=send" class="nav-link text-white">
         <i class="bi bi-chat-left-text-fill">  </i>ارسال درخواست
         </a>
       </li>
       <li class="nav-item">
-        <a id="get" href="/dashboard/?action=requests" class="nav-link text-white" dideo-checked="true">
+        <a id="std_get" href="/dashboard/?action=requests" class="nav-link text-white">
         <i class="bi bi-person-lines-fill">  </i>درخواست ها
         </a>
       </li>
     </ul>
     <hr>
     <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" dideo-checked="true">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
         <img src="/favicon.ico" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong><?php echo $user_data["name"]; ?></strong>
+        <strong><?php echo $user_data["name"]; ?>(<?php echo $type; ?>)</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="/dashboard/?action=settings" dideo-checked="true">تنظیمات سیستم</a></li>
         <li><a class="dropdown-item" href="/dashboard/?action=profile" dideo-checked="true">پروفایل</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/logout/" dideo-checked="true">خروج</a></li>
@@ -36,7 +35,26 @@
   </div>
 
 
-
+<?php
+include(__DIR__ . "/std_dashfunc.php");
+?>
+<div class="dash-div">
+  <?php
+  if (isset($_GET['action'])) {
+    if ($_GET['action'] == "home") {
+      home();
+    } else if ($_GET['action'] == "send") {
+      send();
+    } else if ($_GET['action'] == "requests") {
+      requests();
+    } else if ($_GET['action'] == "profile") {
+      profile();
+    }
+  } else {
+    home();
+  }
+  ?>
+</div>
 
 
 

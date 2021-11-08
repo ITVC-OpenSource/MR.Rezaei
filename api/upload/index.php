@@ -25,8 +25,8 @@ if(!empty($_FILES['file'])){
         move_uploaded_file($tmp_name , $finall_path);
         $f = fopen(__DIR__ . "/../../uploaded/txt/{$name}" , "r");
         $fr = fread($f , filesize(__DIR__ . "/../../uploaded/txt/{$name}"));
-        $a = explode("
-        " , $fr);
+        $a = explode(";" , $fr);
+        unset($a[sizeof($a) - 1]);
         $res = [];
         foreach ($a as $row) {
             $e = explode("," , $row);

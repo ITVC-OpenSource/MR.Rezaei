@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
   session_start();
 }
-$server = "http://localhost:8080";
+$server = "http://localhost:8080/";
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";
@@ -10,7 +10,9 @@ $dbn = "dbstd";
 $dbc = mysqli_connect($dbh , $dbu , $dbp , $dbn);
 $PDO = new PDO("mysql:host=$dbh;dbname=$dbn" , $dbu , $dbp);
 if (!$dbc or !$PDO) {
-  echo "Database connection error!<br>Please try later...";
+  die("Database connection error!<br>Please try later...");
+} else {
+    $PDO->query("SET NAMES utf8");
 }
 if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !=="out" AND $_COOKIE['passw'] !=="out") {
   $uname = $_COOKIE['uname'];
@@ -27,20 +29,26 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !
         $type = "دانش آموز";
     }
   }else{
+    $user_data = [];
+    $user_data['type'] = "student";
+    $type = "";
     echo "<script>
-      if (location.pathname === '/login/') {
+      if (location.pathname === '/login/' || location.pathname === '//login/') {
         // code...
       }else{
-        //slocation.assign('" . $server . "/login/');
+        location.assign('" . $server . "/login/');
       }
     </script>";
   }
 } else {
+  $user_data = [];
+  $user_data['type'] = "student";
+  $type = "";
   echo "<script>
-    if (location.pathname === '/login/') {
+    if (location.pathname === '/login/' || location.pathname === '//login/') {
       // code...
     }else{
-      //location.assign('" . $server . "/login/');
+      location.assign('" . $server . "/login/');
     }
   </script>";
 }

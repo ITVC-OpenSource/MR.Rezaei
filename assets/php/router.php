@@ -1,10 +1,10 @@
 <?php
     /**
      * Class ROUTE
-     * author : mahdi khanzadi
-     * year: 2017--1397 winter
-     * my blog: http://tarhche.com
-     * email: khanzadimahdi@gmail.com
+     * author : Mohammad Behjatpour and AliReza Mirshamsi
+     * year: 2021--1400 fall
+     * site: https://rsampad.ir
+     * email: info@rsampad.ir
     **/
 	class ROUTE{
 		public static $methods=array();
