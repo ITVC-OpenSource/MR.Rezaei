@@ -33,6 +33,7 @@ if(!empty($_FILES['file'])){
             $r = $PDO->query("INSERT INTO `users`(`name`, `uname`, `passw`, `national_code`, `class`, `school`, `status`, `type`) VALUES ('" . $e[0] . "' , '" . $e[1] . "' , '" . $e[2] . "' , '" . $e[3] . "' , '" . $e[4] . "' , '" . $e[5] . "' , '" . $e[6] . "' , '" . $e[7] . "')");
             if (!$r) {
                 $res['false'] = "false";
+                die("false");
             } else {
                 $res['true'] = "true";
             }

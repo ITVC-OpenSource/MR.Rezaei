@@ -1,6 +1,7 @@
 <?php
 session_start();
-$server = "http://localhost:8080/";
+$server = "http://localhost:8080";
+header("Access-Control-Allow-Origin: " . $server);
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";

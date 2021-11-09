@@ -1,5 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 include(__DIR__ . "/../config.php");
 if (isset($_GET['type']) AND isset($_GET['txt']) AND isset($_GET['old'])) {
     if ($_GET['type'] == "uname") {

@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
   session_start();
 }
-$server = "http://localhost:8080/";
+$server = "http://localhost:8080";
 $dbh = "localhost";
 $dbu = "root";
 $dbp = "";

@@ -2,6 +2,8 @@
 include(__DIR__ . "/../php/config.php");
 $res = $PDO->query("SELECT * FROM `scores` WHERE `status` = 1");
 ?>
+<body>
+<?php include(__DIR__."/../pages/menu.php"); ?>
 <table class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
@@ -43,9 +45,9 @@ $res = $PDO->query("SELECT * FROM `scores` WHERE `status` = 1");
                 echo "<td>" . $req['about'] . "</td>";
                 echo "<td>" . $st . "</td>";
                 echo "<td class='text-center'>";
-                echo "<i class='bi bi-check-square-fill text-primary' style='margin-left: 2.5px;font-size: 20px;' onclick='check(" . $req['id'] . ")'></i>";
+                echo "<span class='bi bi-check-square-fill text-primary' style='margin-left: 2.5px;font-size: 20px;' onclick='check(" . $req['id'] . ")'></span>";
                 if ($req['status'] !== 0) {
-                  echo "<i class='bi bi-x-square-fill text-danger' style='margin-right: 2.5px;font-size: 20px;' onclick='x(" . $req['id'] . ")'></i>";
+                  echo "<span class='bi bi-x-square-fill text-danger' style='margin-right: 2.5px;font-size: 20px;' onclick='x(" . $req['id'] . ")'></span>";
                 }
                 echo "</td>";
                 echo "</tr>";

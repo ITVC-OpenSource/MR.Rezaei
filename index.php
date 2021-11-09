@@ -29,7 +29,7 @@ ROUTE::get("/user_profile/" , function () {
     $direct = true;
     include(__DIR__ . "/assets/pages/profile.php");
 });
-$ro = ["login" , "dashboard" , "logout" , "about" , "add_user" , "user_profile", "delete_user"];
+$ro = ["/" , "login" , "dashboard" , "logout" , "about" , "add_user" , "user_profile", "delete_user" , ""];
 $rt = [];
 $rs = [];
 $encoded_url = ROUTE::findURI();

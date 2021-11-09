@@ -1,5 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 include(__DIR__ . "/../config.php");
 if (isset($_GET['n']) AND isset($_GET['f']) AND isset($_GET['s']) AND isset($_GET['p'])) {
     $n = $_GET['n'];

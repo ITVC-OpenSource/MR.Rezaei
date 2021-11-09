@@ -1,5 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 include(__DIR__ . "/../config.php");
 if (isset($_GET['u']) AND isset($_GET['p'])) {
     $u = $_GET['u'];
