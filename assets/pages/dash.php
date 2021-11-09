@@ -15,6 +15,8 @@ if (isset($_GET['action'])) {
         profile();
     } else if ($_GET['action'] == "add_user_with_file") {
         add_user_with_file();
+    } else if ($_GET['action'] == "settings") {
+        settings();
     }
 } else {
     home();

@@ -42,8 +42,8 @@
         <strong><?php echo $user_data["name"]; ?>(<?php echo $type; ?>)</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="/dashboard/?action=settings" dideo-checked="true"><i class="bi bi-gear-fill">  </i>تنظیمات سیستم</a></li>
-        <li><a class="dropdown-item" href="/dashboard/?action=profile" dideo-checked="true"><i class="bi bi-person-fill">  </i>پروفایل</a></li>
+        <li><a class="dropdown-item settings" href="/dashboard/?action=settings" dideo-checked="true"><i class="bi bi-gear-fill">  </i>تنظیمات سیستم</a></li>
+        <li><a class="dropdown-item profile" href="/dashboard/?action=profile" dideo-checked="true"><i class="bi bi-person-fill">  </i>پروفایل</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/logout/" dideo-checked="true"><i class="bi bi-box-arrow-right">  </i>خروج</a></li>
       </ul>

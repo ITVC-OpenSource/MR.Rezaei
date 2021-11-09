@@ -18,6 +18,11 @@ function requests() {
 }
 function profile() {
     include(__DIR__ . "/profile.php");
+    echo "<script>document.querySelector('.profile').classList.add('active');</script>";
+}
+function settings() {
+    include(__DIR__ . "/settings.php");
+    echo "<script>document.querySelector('.settings').classList.add('active');</script>";
 }
 function delete_user() {
     include(__DIR__ . "/deleteuser.php");
