@@ -1,6 +1,7 @@
 <?php
 include(__DIR__ . "/../php/config.php");
 function home() {
+    include(__DIR__ . "/home.php");
     echo "<script>document.querySelector('.home').classList.add('active');</script>";
 }
 function add_user() {
