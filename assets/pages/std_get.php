@@ -2,6 +2,8 @@
 include(__DIR__ . "/../php/config.php");
 $res = $PDO->query("SELECT * FROM `scores` WHERE `sender_id` = '" . $user_data['id'] . "'");
 ?>
+<body>
+<?php include(__DIR__ . "/menu.php"); ?>
 <table class="table table-striped table-hover table-bordered text-center">
     <thead>
     <tr>
@@ -53,3 +55,4 @@ $res = $PDO->query("SELECT * FROM `scores` WHERE `sender_id` = '" . $user_data['
     ?>
     </tbody>
 </table>
+</body>
