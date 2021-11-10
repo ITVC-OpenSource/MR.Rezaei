@@ -12,9 +12,9 @@
 <script>
 $("#sub").on("click" , upload);
 function upload(){
-    splash();
     var form = $('form')[0];
     var dataForm = new FormData(form);
+    splash();
     $.post({
         url : api_server + "/upload/index.php",
         data : dataForm ,

@@ -25,15 +25,17 @@ if(!empty($_FILES['file'])){
         move_uploaded_file($tmp_name , $finall_path);
         $f = fopen(__DIR__ . "/../../uploaded/txt/{$name}" , "r");
         $fr = fread($f , filesize(__DIR__ . "/../../uploaded/txt/{$name}"));
-        $a = explode(";" , $fr);
-        unset($a[sizeof($a) - 1]);
+        $a = explode(";
+" , $fr);
+        //unset($a[sizeof($a) - 1]);
         $res = [];
         foreach ($a as $row) {
             $e = explode("," , $row);
-            $r = $PDO->query("INSERT INTO `users`(`name`, `uname`, `passw`, `national_code`, `class`, `school`, `status`, `type`) VALUES ('" . $e[0] . "' , '" . $e[1] . "' , '" . $e[2] . "' , '" . $e[3] . "' , '" . $e[4] . "' , '" . $e[5] . "' , '" . $e[6] . "' , '" . $e[7] . "')");
+            $q = "INSERT INTO `users`(`name`, `uname`, `passw`, `national_code`, `class`, `school`, `status`, `type`) VALUES ('" . $e[0] . "' , '" . $e[1] . "' , '" . $e[2] . "' , '" . $e[3] . "' , '" . $e[4] . "' , '" . $e[5] . "' , '" . $e[6] . "' , '" . $e[7] . "')";
+            $r = $PDO->query($q);
             if (!$r) {
                 $res['false'] = "false";
-                die("false");
+                echo "false";
             } else {
                 $res['true'] = "true";
             }
@@ -45,5 +47,7 @@ if(!empty($_FILES['file'])){
         }
         unlink(__DIR__ . "/../../uploaded/txt/{$name}");
     }
+} else {
+    echo "false";
 }
 ?>
