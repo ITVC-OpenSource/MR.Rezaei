@@ -17,8 +17,16 @@ if (!$dbc or !$PDO) {
 if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !=="out" AND $_COOKIE['passw'] !=="out") {
   $uname = $_COOKIE['uname'];
   $passw = $_COOKIE['passw'];
-  $user_query = "SELECT * FROM users WHERE uname = $uname AND passw = $passw";
+  $user_query = "SELECT * FROM `users` WHERE `uname` = '" . $uname . "' AND `passw` = '" . $passw . "'";
   $user_quexe = $PDO->query($user_query);
+  if (!$user_quexe) {
+      echo '
+      <script>
+        setCookie("uname" , "out" , 365);
+        setCookie("passw" , "out" , 365);
+      </script>
+      ';
+  }
   if ($user_quexe->rowCount() == 1) {
     $user_data = $user_quexe->fetch(PDO::FETCH_ASSOC);
     if ($user_data['type'] == "full_admin") {
@@ -27,11 +35,19 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !
         $type = "مدیر";
     }else if ($user_data['type'] == "student") {
         $type = "دانش آموز";
+    } else if ($user_data['type'] == "accepter") {
+        $type = "تایید کننده";
     }
-  }else{
+  } else {
     $user_data = [];
     $user_data['type'] = "student";
     $type = "";
+      echo '
+      <script>
+        setCookie("uname" , "out" , 365);
+        setCookie("passw" , "out" , 365);
+      </script>
+      ';
     echo "<script>
       if (location.pathname === '/login/' || location.pathname === '//login/') {
         // code...

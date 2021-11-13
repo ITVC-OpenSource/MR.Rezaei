@@ -1,6 +1,6 @@
 <?php
 include(__DIR__ . "/../php/config.php");
-$res = $PDO->query("SELECT * FROM `scores`");
+$res = $PDO->query("SELECT * FROM `scores` WHERE `accepter` = '" . $user_data['id'] . "'");
 ?>
 <body>
 <?php include(__DIR__."/../pages/menu.php"); ?>
@@ -40,7 +40,7 @@ $res = $PDO->query("SELECT * FROM `scores`");
               if ($req['status'] == 1) {
                 $st = "در انتظار تایید کادر مدرسه";
               }else if ($req['status'] == 0) {
-                $st = "رد شده.";
+                $st = "رد شده";
               } else if ($req['status'] == 2) {
                   $st = "تأیید شده";
               }
@@ -72,21 +72,61 @@ $res = $PDO->query("SELECT * FROM `scores`");
 </table>
 </body>
 <script>
+function acceptBox (title , value , cls) {
+    $('body').css('height' , "100%");
+    document.body.innerHTML += `
+  <div class="${cls}" style='height: 100%;'>
+  <div class='drk-bg'></div>
+    <div class="modal-dialog Box" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-body p-4 text-center">
+          <h5 class="mb-0">${title}</h5>
+          <p class="mb-0">${value}</p>
+        </div>
+        <div class="modal-footer flex-nowrap p-0">
+          <button onclick="unAcceptBox('${cls}');" style="width: 100%;" type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right"><strong>تایید</strong></button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+function unAcceptBox(cls) {
+    document.querySelector("." + cls).remove();
+    location.reload();
+}
 function check_scopes(id) {
     splash();
     $.get({
-        url: api_server + "/scopes/?a=c&id=" + id + "&si=<?php echo $user_data['id'] ?>",
+        url: api_server + "/scopes/?a=c&id=" + id,
         success: (txt) => {
             unsplash();
             if (txt === "true") {
-                Box("تأیید" , "درخواست مورد نظر با موفقیت تأیید شد." , "neiasr");
+                acceptBox("تأیید" , "درخواست مورد نظر با موفقیت تأیید شد." , "neiasr");
             } else {
-                Box("خطا!" , "خطایی در تأیید درخواست مورد نظر بوجود آمد." , "eiasr");
+                acceptBox("خطا!" , "خطایی در تأیید درخواست مورد نظر بوجود آمد." , "eiasr");
             }
         },
         error: (err) => {
             unsplash();
-            Box("خطا!" , "خطایی در تأیید درخواست مورد نظر بوجود آمد." , "eiasr");
+            acceptBox("خطا!" , "خطایی در تأیید درخواست مورد نظر بوجود آمد." , "eiasr");
+        }
+    });
+}
+function x_scopes(id) {
+    splash();
+    $.get({
+        url: api_server + "/scopes/?a=x&id=" + id,
+        success: (txt) => {
+            unsplash();
+            if (txt === "true") {
+                acceptBox("رد شده" , "درخواست مورد نظر با موفقیت رد شد." , "neiasr");
+            } else {
+                acceptBox("خطا!" , "خطایی در رد کردن درخواست مورد نظر بوجود آمد." , "eiasr");
+            }
+        },
+        error: (err) => {
+            unsplash();
+            acceptBox("خطا!" , "خطایی در رد کردن درخواست مورد نظر بوجود آمد." , "eiasr");
         }
     });
 }
