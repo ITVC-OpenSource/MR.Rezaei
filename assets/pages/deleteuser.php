@@ -25,15 +25,16 @@ $n_students = $PDO->query("SELECT * FROM `users` WHERE `school` = '" . $user_dat
         $a = 0;
         foreach ($f_students as $student) {
             $a++;
-            if ($student['status'] == 1) {
-                $student['status'] = "فعال";
-            }
             if ($student['type'] == "full_admin") {
                 $std_type = "مدیر کل";
-            }else if ($student['type'] == "admin") {
+            } else if ($student['type'] == "admin") {
                 $std_type = "مدیر";
             }else if ($student['type'] == "student") {
                 $std_type = "دانش آموز";
+            } else if ($student['type'] == "accepter") {
+                $std_type = "تایید کننده";
+            } else if ($student['type'] == "developer") {
+                $std_type = "توسعه دهنده";
             }
             $ncode = $student['national_code'];
             echo "<tr>";

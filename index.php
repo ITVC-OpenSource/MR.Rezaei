@@ -29,7 +29,11 @@ ROUTE::get("/user_profile/" , function () {
     $direct = true;
     include(__DIR__ . "/assets/pages/profile.php");
 });
-$ro = ["/" , "login" , "dashboard" , "logout" , "about" , "add_user" , "user_profile", "delete_user" , ""];
+ROUTE::get("/docs/add_user_with_file/" , function () {
+    $direct = true;
+    include(__DIR__ . "/assets/pages/docs/add_user_with_file.php");
+});
+$ro = ["/" , "login" , "dashboard" , "logout" , "about" , "add_user" , "user_profile", "delete_user" , "" , "docs"];
 $rt = [];
 $rs = [];
 $encoded_url = ROUTE::findURI();
