@@ -1,13 +1,6 @@
 <?php
 include(__DIR__ . '/../php/config.php');
 include(__DIR__ . '/../pages/menu.php');
-if ($user_data['type'] == "full_admin") {
-   $type = "مدیر کل";
-} else if ($user_data['type'] == "admin") {
-    $type = "مدیر";
-}else if ($user_data['type'] == "student") {
-    $type = "دانش آموز";
-}
 ?>
 <body class="text-center">
 <div class="main" style="width: calc(100% - 0.5em);">
@@ -23,8 +16,8 @@ if ($user_data['type'] == "full_admin") {
         <tbody>
             <tr>
                 <td><?php echo $user_data["name"]; ?></td>
-                <td id="uname"><?php echo $user_data["uname"]; ?>  <i class="bi bi-pencil-square text-primary" onclick="editInformation('uname');"></i></td>
-                <td id="passw"><?php echo $user_data["passw"]; ?>  <i class="bi bi-pencil-square text-primary" onclick="editInformation('passw');"></i></td>
+                <td id="uname"><?php echo $user_data["uname"]; ?>  <i class="bi bi-pencil-square text-primary"></i></td>
+                <td id="passw"><?php echo $user_data["passw"]; ?>  <i class="bi bi-pencil-square text-primary"></i></td>
                 <td><?php echo $user_data["national_code"]; ?></td>
                 <td><?php echo $user_data["class"]; ?></td>
                 <td><?php echo $type; ?></td>
@@ -33,14 +26,22 @@ if ($user_data['type'] == "full_admin") {
     </table>
 </div>
 <script>
+    document.querySelector("#uname").addEventListener("click" , () => {
+        editInformation('uname');
+    });
+    document.querySelector("#passw").addEventListener("click" , () => {
+        editInformation('passw');
+    });
 function editInformation(what) {
     if (what === "uname") {
-        $("#uname").html("<input type='text' value='<?php echo $user_data['uname']; ?>'></input> <i class='bi bi-pencil-square text-primary' onclick='sendInformation(`uname`);'></i>");
+        $("#uname").html("<input type='text' value='<?php echo $user_data['uname']; ?>'></input> <i class='bi bi-pencil-square text-primary'></i>");
+        document.querySelector("#uname").addEventListener("click" , () => {sendInformation("uname");});
     } else if (what === "passw") {
-        $("#passw").html("<input type='text' value='<?php echo $user_data['passw']; ?>'></input> <i class='bi bi-pencil-square text-primary' onclick='sendInformation(`passw`);'></i>");
+        $("#passw").html("<input type='text' value='<?php echo $user_data['passw']; ?>'></input> <i class='bi bi-pencil-square text-primary'></i>");
+        document.querySelector("#passw").addEventListener("click" , () => {sendInformation("passw");});
     }
 }
-function sendInformation(what , old) {
+function sendInformation(what) {
     if (what === "uname") {
         $.get({
             url: api_server + "/edit/?type=" + what + "&old=" + <?php echo $user_data['uname'] ?> + "&txt=" + $("#uname input").val(),

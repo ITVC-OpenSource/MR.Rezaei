@@ -4,7 +4,7 @@
 ?>
 
 <?php
-  if ($user_data['type'] == "admin" || $user_data['type'] == "full_admin") {?>
+  if ($user_data['type'] == "admin" || $user_data['type'] == "full_admin" || $user_data['type'] == "developer") {?>
     <div class="main text-seconadry">
         <?php
             include(__DIR__ . "/admin_sidebar.php");

@@ -138,18 +138,14 @@ function check(txt , u , p) {
   }
 if (location.pathname === "login/" || location.pathname === "login") {} else {
 function send() {
-  let type = $("#floatingInput").val();
-  let name = $("#floatingInput").val();
-  let ncode = $("#floatingInput").val();
   let uname = $("#floatingInput").val();
   let passw = $("#floatingPassword").val();
-  let rmm = $("#remember-me").val();
   splash();
   $.get({
     url: api_server + "/login/?u=" + uname + "&p=" + passw,
     success: (txt) => {
       let text = txt.replace("" , "");
-      check(text , type , name , ncode , uname , passw);
+      check(text , uname , passw);
       unsplash();
     },
     error: () => {

@@ -13,11 +13,6 @@
         <input autocomplete="off" dir="ltr" type="password" class="form-control" id="floatingPassword">
         <label for="floatingPassword">گذرواژه</label>
       </div>
-      <div class="checkbox mb-3">
-        <label>
-          <input id="remember-me" checked="true" disabled type="checkbox" value="remember-me"> مرا به خاطر بسپار
-        </label>
-      </div>
       <button onclick="send();" id="sub" class="w-100 btn btn-lg btn-primary">ورود</button>
       <p class="mt-5 mb-3 text-muted" dir="ltr">©1400</p>
     </div>

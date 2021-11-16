@@ -37,6 +37,8 @@ if (isset($_COOKIE['uname']) AND isset($_COOKIE['passw']) || $_COOKIE['uname'] !
         $type = "دانش آموز";
     } else if ($user_data['type'] == "accepter") {
         $type = "تایید کننده";
+    } else if ($user_data['type'] == "developer") {
+        $type = "توسعه دهنده";
     }
   } else {
     $user_data = [];

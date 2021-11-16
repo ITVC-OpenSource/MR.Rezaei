@@ -1,5 +1,6 @@
 <div class="container">
 <form action="" method="post" class="form-floating text-center form-data">
+    <a class="btn btn-primary mb-3" href="/docs/add_user_with_file/" target="_blank">اگر نمی دانید چگونه باید این کار را انجام دهید روی این متن کلیک کنید!</a>
     <div class="mb-3" style="direction: ltr;">
         <label for="formFile" class="form-label">یک فایل متنی را انتخاب کنید</label>
         <input class="form-control" type="file" id="formFile" name="file">
@@ -10,7 +11,7 @@
 </form>
 </div>
 <script>
-$("#sub").on("click" , upload);
+document.querySelector("#sub").addEventListener("click" , upload);
 function upload(){
     var form = $('form')[0];
     var dataForm = new FormData(form);
@@ -33,5 +34,6 @@ function upload(){
             window.alert("خطایی در ثبت اطلاعات رخ داد.");
         }
     });
+    document.querySelector("#sub").addEventListener("click" , upload);
 }
 </script>
