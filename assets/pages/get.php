@@ -1,10 +1,10 @@
 <?php
 include(__DIR__ . "/../php/config.php");
-$res = $PDO->query("SELECT * FROM `scores` WHERE `accepter` = '" . $user_data['id'] . "'");
+$res = $PDO->query("SELECT * FROM `scores` WHERE `accepter` = '" . $user_data['id'] . "' AND `school` = '" . $user_data['school'] . "'");
 ?>
-<body>
+<body class="text-center">
 <?php include(__DIR__."/../pages/menu.php"); ?>
-<table class="table table-striped table-hover table-bordered">
+<table class="text-center table table-striped table-hover table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -20,13 +20,13 @@ $res = $PDO->query("SELECT * FROM `scores` WHERE `accepter` = '" . $user_data['i
     <?php
         if ($res->rowCount() == 0) {
             echo "<tr>";
-            echo "<td>هنوز</td>";
-            echo "<td>دانش</td>";
-            echo "<td>آموزی</td>";
+            echo "<td></td>";
+            echo "<td></td>";
             echo "<td>درخواستی</td>";
-            echo "<td>ثبت</td>";
-            echo "<td>نکرده</td>";
-            echo "<td>است</td>";
+            echo "<td>یافت</td>";
+            echo "<td>نشد</td>";
+            echo "<td></td>";
+            echo "<td></td>";
             echo "</tr>";
         }else {
           $a = 0;
@@ -38,7 +38,7 @@ $res = $PDO->query("SELECT * FROM `scores` WHERE `accepter` = '" . $user_data['i
                   $name['name'] = "حساب کاربری حذف شده";
               }
               if ($req['status'] == 1) {
-                $st = "در انتظار تایید کادر مدرسه";
+                $st = "در انتظار تایید شما";
               }else if ($req['status'] == 0) {
                 $st = "رد شده";
               } else if ($req['status'] == 2) {
@@ -97,7 +97,7 @@ function unAcceptBox(cls) {
 function check_scopes(id) {
     splash();
     $.get({
-        url: api_server + "/scopes/?a=c&id=" + id,
+        url: api_server + "/scopes/?a=c&si=<?php echo $user_data['id']; ?>&id=" + id,
         success: (txt) => {
             unsplash();
             if (txt === "true") {
@@ -115,7 +115,7 @@ function check_scopes(id) {
 function x_scopes(id) {
     splash();
     $.get({
-        url: api_server + "/scopes/?a=x&id=" + id,
+        url: api_server + "/scopes/?a=x&si=<?php echo $user_data['id']; ?>&id=" + id,
         success: (txt) => {
             unsplash();
             if (txt === "true") {

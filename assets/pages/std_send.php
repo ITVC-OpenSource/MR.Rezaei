@@ -14,7 +14,7 @@ include(__DIR__ . "/menu.php");
     <label for="floatingPassword">بابت:</label>
   </div>
   <div class="form-floating">
-        <select name="type" class="form-control" id="floatingInput">
+        <select name="type" class="form-control accepter" id="floatingInput">
             <?php
                 $res = $PDO->query("SELECT * FROM `users` WHERE `school` = '" . $user_data['school'] . "' AND type = 'accepter'");
                 if ($res->rowCount() == 0) {
@@ -33,9 +33,35 @@ include(__DIR__ . "/menu.php");
         </select>
       <label>به:</label>
   </div>
-  <button onclick="sendScoreRequest();" type="button" id="scoreSub" class="w-100 btn btn-lg btn-primary mt-2">ارسال</button>
+  <button type="button" id="scoreSub" class="w-100 btn btn-lg btn-primary mt-2">ارسال</button>
   <p class="mt-5 mb-3 text-muted" dir="ltr">©1400</p>
 </div>
+<script>
+    document.querySelector("#scoreSub").addEventListener("click" , sendScoreRequest);
+    function sendScoreRequest() {
+        let teadad = $(".teadad").val();
+        let about = $(".about").val();
+        let accepter = $(".accepter").val();
+        splash();
+        document.querySelector("#scoreSub").addEventListener("click" , sendScoreRequest);
+        $.get({
+            url: api_server + "/send/?n=" + teadad + "&f=" + about + "&id=<?php echo $user_data['id']; ?>&s=<?php echo $user_data['school']; ?>&a=" + accepter,
+            success: (txt) => {
+                unsplash();
+                if (txt === "true") {
+                    Box("ارسال موفقیت آمیز بود." , "باید منتظر تایید کادر مدرسه باشید!" , "sendBox");
+                }else {
+                    Box("خطا!" , "خطا در ارسال اطلاعات" , "error-in-send-score-request");
+                }
+            },
+            error: () => {
+                unsplash();
+                Box("خطا!" , "خطا در ارسال اطلاعات" , "error-in-send-score-request");
+            }
+        });
+        document.querySelector("#scoreSub").addEventListener("click" , sendScoreRequest);
+    }
+</script>
 <style>
     body {
         padding-top: 0!important;

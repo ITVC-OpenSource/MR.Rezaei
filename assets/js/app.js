@@ -116,26 +116,6 @@ function check(txt , u , p) {
     $("#floatingPassword").addClass("is-invalid");
   }
 }
-  function sendScoreRequest() {
-    let teadad = $(".teadad").val();
-    let about = $(".about").val();
-    splash();
-    $.get({
-      url: api_server + "/send/?n=" + teadad + "&f=" + about + "&s=" + $_COOKIE["uname"] + "&p=" + $_COOKIE["passw"],
-      success: (txt) => {
-        unsplash();
-        if (txt === "true") {
-            Box("ارسال موفقیت آمیز بود." , "باید منتظر تایید کادر مدرسه باشید!" , "sendBox");
-        }else {
-            btsErrorBox("خطا در ارسال اطلاعات" , cls);
-        }
-      },
-      error: () => {
-          unsplash();
-          noneTitleBox(retBtsErrorBox("خطا در ارسال اطلاعات" , "error-in-send-score-request") , "eissr");
-      }
-    });
-  }
 if (location.pathname === "login/" || location.pathname === "login") {} else {
 function send() {
   let uname = $("#floatingInput").val();

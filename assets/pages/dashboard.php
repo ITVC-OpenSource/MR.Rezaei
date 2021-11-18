@@ -16,7 +16,13 @@
     </div>
     </div>
 <?php
-}else{
+}else if ($user_data['type'] == "accepter") {
+?>
+<div class="main">
+    <?php include(__DIR__ . "/accepter_sidebar.php"); ?>
+</div>
+<?php
+  } else {
 ?>
 <div class="main">
 <?php include(__DIR__ . "/std_sidebar.php"); ?>
